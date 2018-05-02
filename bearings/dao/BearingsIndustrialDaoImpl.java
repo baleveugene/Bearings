@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.springapp.light.dao;
+package com.springapp.bearings.dao;
 
-
-import com.springapp.light.domain.LightOffice;
-import com.springapp.light.domain.LightOfficePower;
-import com.springapp.light.domain.LightOfficeSize;
-import com.springapp.light.domain.LightOfficeType;
-
+import com.springapp.bearings.domain.BearingsIndustrial;
+import com.springapp.bearings.domain.BearingsIndustrialSize;
+import com.springapp.bearings.domain.BearingsIndustrialType;
 
 import com.springapp.mvc.util.PrintInFile;
 
@@ -43,124 +40,86 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Repository 
-public class LightOfficeDaoImpl extends PrintInFile implements LightOfficeDao{
+public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIndustrialDao{
 
     @Autowired private SessionFactory sessionFactory;
 
-
     @Override
     @SuppressWarnings("unchecked")
-    public LightOffice getLightByUrl(String url) { 
-        Query query = sessionFactory.getCurrentSession().createQuery("from LightOffice where url='" + url+ "'" );
-        return (LightOffice) query.uniqueResult();
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public LightOffice getLightById(String id) { 
-        Query query = sessionFactory.getCurrentSession().createQuery("from LightOffice where id='" + id+ "'" );
-        return (LightOffice) query.uniqueResult();
+    public BearingsIndustrial getBearingsById(String id) { 
+        Query query = sessionFactory.getCurrentSession().createQuery("from BearingsIndustrial where id='" + id+ "'" );
+        return (BearingsIndustrial) query.uniqueResult();
     }
     
     //       ORDER BY model DESC
     
     @Override @SuppressWarnings("unchecked")
-    public void saveLightOffice(LightOffice lightOffice) { 
-    sessionFactory.getCurrentSession().saveOrUpdate(lightOffice);
-    }
+    public void saveBearingsIndustrial(BearingsIndustrial bearingsIndustrial) { 
+    sessionFactory.getCurrentSession().saveOrUpdate(bearingsIndustrial);
+    }    
     
     @Override @SuppressWarnings("unchecked")
-    public List<LightOfficePower> getListLightOfficePower(){ 
-       return (List<LightOfficePower> )sessionFactory.getCurrentSession().createCriteria(LightOfficePower.class).list();
-   }
- 
-    
-    @Override @SuppressWarnings("unchecked")
-    public List<LightOfficeSize> getListLightOfficeSize(){ 
-       return (List<LightOfficeSize> )sessionFactory.getCurrentSession().createCriteria(LightOfficeSize.class)
+    public List<BearingsIndustrialSize> getListBearingsIndustrialSize(){ 
+       return (List<BearingsIndustrialSize> )sessionFactory.getCurrentSession().createCriteria(BearingsIndustrialSize.class)
                                                     .addOrder(Order.desc("size")) .list();  
     }
         @Override
     @SuppressWarnings("unchecked")
-    public List<LightOfficeType> getListLightOfficeType(){ 
-//       return sessionFactory.getCurrentSession().createCriteria(LightOfficePower.class).addOrder(Order.desc("power")).list();
-       return (List<LightOfficeType> )sessionFactory.getCurrentSession().createCriteria(LightOfficeType.class)
+    public List<BearingsIndustrialType> getListBearingsIndustrialType(){ 
+       return (List<BearingsIndustrialType> )sessionFactory.getCurrentSession().createCriteria(BearingsIndustrialType.class)
                .addOrder(Order.desc("type"))
                .list();
-//        return  (List<Vmc> ) sessionFactory.getCurrentSession().createCriteria(Vmc.class).list();
     }
-    
-    
-  
-
-    
-   
-    
+         
     @Override
     @SuppressWarnings("unchecked")
-    public List<LightOffice> getListLightOffice() {
-    return sessionFactory.getCurrentSession().createCriteria(LightOffice.class).addOrder(Order.desc("model")).list();
+    public List<BearingsIndustrial> getListBearingsIndustrial() {
+    return sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class).addOrder(Order.desc("model")).list();
     }
     
     @Override
     @SuppressWarnings("unchecked")
-    public List<LightOffice> getListLightOffice(String emergency, String [] arrPowers, String size, String type) {
-        Criteria crit = sessionFactory.getCurrentSession().createCriteria(LightOffice.class);
-    if (emergency != null)  crit.add(Restrictions.ne("luminousFluxEmergency", 0));
-    if (arrPowers != null && !arrPowers[0].equals(""))   crit.add(Restrictions.in("power", arrPowers));
+    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String type) {
+        Criteria crit = sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class);
     if (size != null && !size.equals(""))  crit.add(Restrictions.eq("size", size));
     if (type != null && !type.equals(""))  crit.add(Restrictions.eq("type", type));
          return crit.list();
     }
-
-    
-     
-
-     
+             
     @Override
     @SuppressWarnings("unchecked")
-    public void renewLightOfficePower() {
-        renewLightFilter(LightOfficePower.class.getSimpleName(),"office", "power");
-    }
-    @Override
-    @SuppressWarnings("unchecked")
-    public void renewLightOfficeSize() {
-        renewLightFilter(LightOfficeSize.class.getSimpleName(),"office", "size");
+    public void renewBearingsIndustrialSize() {
+        renewBearingsFilter(BearingsIndustrialSize.class.getSimpleName(),"industrial", "size");
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public void renewLightOfficeType() {
-        renewLightFilter(LightOfficeType.class.getSimpleName(), "all", "type");
+    public void renewBearingsIndustrialType() {
+        renewBearingsFilter(BearingsIndustrialType.class.getSimpleName(), "all", "type");
     }
-
- 
-
-  
-    
-    
+   
     @Override
     @SuppressWarnings("unchecked")
-    public List<LightOffice> getListLighByIds(String [] idsArr){
-     Criteria criteria = sessionFactory.getCurrentSession().createCriteria(LightOffice.class);
+    public List<BearingsIndustrial> getListBearingsByIds(String [] idsArr){
+     Criteria criteria = sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class);
      if (idsArr != null && !idsArr[0].equals("") )   criteria.add(Restrictions.in("id",  idsArr));
         return criteria.list(); 
     } 
     
     @Override @SuppressWarnings("unchecked")
-    public List<LightOffice> getListLightFromSearch(String word){
-    return sessionFactory.getCurrentSession().createQuery("from LightOffice where model LIKE '%"+word+"%' ORDER BY model DESC").list();
+    public List<BearingsIndustrial> getListBearingsFromSearch(String word){
+    return sessionFactory.getCurrentSession().createQuery("from BearingsIndustrial where model LIKE '%"+word+"%' ORDER BY model DESC").list();
     } 
     
     
     
     @SuppressWarnings("unchecked")
-    private void renewLightFilter(String className, String typeLight, String checkBoxName) {
+    private void renewBearingsFilter(String className, String typeBearings, String checkBoxName) {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from " + className).executeUpdate();
         List<String> list;
-if(typeLight.equals("all"))  list = session.createQuery("select M." + checkBoxName + " from LightOffice M").list();
-else  list = session.createQuery("select M." + checkBoxName + " from LightOffice M where type='"+typeLight+"'").list();
+if(typeBearings.equals("all"))  list = session.createQuery("select M." + checkBoxName + " from BearingsIndustrial M").list();
+else  list = session.createQuery("select M." + checkBoxName + " from BearingsIndustrial M where type='"+typeBearings+"'").list();
 
                
         for (int i = 0; i < list.size(); i++) {
@@ -171,53 +130,29 @@ else  list = session.createQuery("select M." + checkBoxName + " from LightOffice
         for(String val : list) {
             set.add(val);
         }
-        
-        if(className.equals(LightOfficePower.class.getSimpleName())) {
+           
+        if(className.equals(BearingsIndustrialSize.class.getSimpleName())) {
             for (String s : set) {
-                session.save(getLightOfficePower((Integer.parseInt(s)) , Collections.frequency(list, s)));
-            }
-        } else if(className.equals(LightOfficeSize.class.getSimpleName())) {
-            for (String s : set) {
-                session.save(getLightOfficeSize(s, Collections.frequency(list, s)));
+                session.save(getBearingsIndustrialSize(s, Collections.frequency(list, s)));
             }
         }
-        else if(className.equals(LightOfficeType.class.getSimpleName())){
+        else if(className.equals(BearingsIndustrialType.class.getSimpleName())){
             for (String s : set) {
-                session.save(getLightOfficeType(s, Collections.frequency(list, s)));
+                session.save(getBearingsIndustrialType(s, Collections.frequency(list, s)));
             }
-        }
-        
-        
-  
+        }          
+    }       
+    
+    private BearingsIndustrialSize getBearingsIndustrialSize(String val, int num) {
+        BearingsIndustrialSize bearingsIndustrialSize = new BearingsIndustrialSize();
+        bearingsIndustrialSize.setSize(val);
+        bearingsIndustrialSize.setNum(num);
+        return bearingsIndustrialSize;
     }
-
-  
-    
-    private LightOfficePower getLightOfficePower(int val, int num) {
-        LightOfficePower lightOfficePower = new LightOfficePower();
-        lightOfficePower.setPower(val);
-        lightOfficePower.setNum(num);
-        return lightOfficePower;
-    }
-    
-    private LightOfficeSize getLightOfficeSize(String val, int num) {
-        LightOfficeSize lightOfficePower = new LightOfficeSize();
-        lightOfficePower.setSize(val);
-        lightOfficePower.setNum(num);
-        return lightOfficePower;
-    }
-    private LightOfficeType getLightOfficeType(String val, int num) {
-        LightOfficeType lightOfficeType = new LightOfficeType();
-        lightOfficeType.setType(val);
-        lightOfficeType.setNum(num);
-        return lightOfficeType;
-    }
-
- 
-    
-      
-    
-    
-    
-    
+    private BearingsIndustrialType getBearingsIndustrialType(String val, int num) {
+        BearingsIndustrialType bearingsIndustrialType = new BearingsIndustrialType();
+        bearingsIndustrialType.setType(val);
+        bearingsIndustrialType.setNum(num);
+        return bearingsIndustrialType;
+    }                        
 }

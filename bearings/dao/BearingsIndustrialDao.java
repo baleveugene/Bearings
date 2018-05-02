@@ -32,10 +32,7 @@ public interface BearingsIndustrialDao {
 
     public List<BearingsIndustrialSize> getListBearingsIndustrialSize();
     public List<BearingsIndustrialType> getListBearingsIndustrialType();
-    
- 
-    
-
+       
     public void  renewBearingsIndustrialSize();
 
     public void  renewBearingsIndustrialType();
