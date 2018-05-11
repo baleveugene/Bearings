@@ -74,7 +74,9 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     @Override
     @SuppressWarnings("unchecked")
     public List<BearingsIndustrial> getListBearingsIndustrial() {
-    return sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class).addOrder(Order.desc("model")).list();
+    return sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class)
+            .addOrder(Order.desc("model"))
+            .list();
     }
     
     @Override

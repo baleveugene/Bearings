@@ -52,85 +52,51 @@ public class ParserExcelBearingsIndustrial  {
         df.formatCellValue(rowIterator.next().getCell(1)).trim();
         printInFile("readBearingsIndustrial.txt", "1");
         
-       
-        
         bearingsIndustrial.setType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getType());
         
+        bearingsIndustrial.setSubType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubType());
+        
         bearingsIndustrial.setModel(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readLightOffice.txt", "3 getModel = " + bearingsIndustrial.getModel());
+        printInFile("readBearingsIndustrial.txt", "4 getModel = " + bearingsIndustrial.getModel());             
         
-        df.formatCellValue(rowIterator.next().getCell(1)).trim();
-        bearingsIndustrial.setUrl(getUrl(lightOffice.getModel())); lightOffice.setId(getID(lightOffice.getModel()));
-        printInFile("readLightOffice.txt", "4 setUrl"  );
-        
-        lightOffice.setManufacturer(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readLightOffice.txt", "5 setManufacturer = " + lightOffice.getManufacturer());
+        bearingsIndustrial.setManufacturer(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+         printInFile("readBearingsIndustrial.txt", "5 setManufacturer = " + bearingsIndustrial.getManufacturer());
          
-        lightOffice.setCountry(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readLightOffice.txt", "6 setCountry = " + lightOffice.getCountry());
-         
-        lightOffice.setDiffuser(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readLightOffice.txt", "7 setDiffuser = " + lightOffice.getDiffuser());
+        bearingsIndustrial.setCountry(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+         printInFile("readBearingsIndustrial.txt", "6 setCountry = " + bearingsIndustrial.getCountry());        
         
-        lightOffice.setPower(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readLightOffice.txt", "8 setPower = " + lightOffice.getPower());
+        bearingsIndustrial.setBasicDynamicLoadRating(intFromCell(rowIterator, df)); 
+        bearingsIndustrial.setBasicStaticLoadRating(intFromCell(rowIterator, df));
+        bearingsIndustrial.setFatiqueLoadLimit(intFromCell(rowIterator, df));
+        bearingsIndustrial.setReferenceSpeed(intFromCell(rowIterator, df));
+        bearingsIndustrial.setLimitingSpeed(intFromCell(rowIterator, df));
+       
+        bearingsIndustrial.setSize(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+          
+        bearingsIndustrial.setWeight(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        bearingsIndustrial.setTemperatureWork(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         
-        lightOffice.setLuminousFlux(intFromCell(rowIterator, df)); 
-        lightOffice.setLuminousFluxEmergency(intFromCell(rowIterator, df)); 
-        lightOffice.setTemperatureGlow(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setSize(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setSizeInstallation(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        bearingsIndustrial.setGuarantee(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        printInFile("readBearingsIndustrial.txt", "21 setGuarantee = " + bearingsIndustrial.getGuarantee());
 
-        lightOffice.setCoefficientPulsation(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setCoefficientPower(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setTypeLidc(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setIndexColor(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setSecurity(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setWeight(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setTemperatureWork(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        
-        lightOffice.setGuarantee(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readLightOffice.txt", "21 setGuarantee = " + lightOffice.getGuarantee());
-
-        lightOffice.setDimmingFunction(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        lightOffice.setMountingType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        
         rowIterator.next().getCell(1);
         
-        lightOffice.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        lightOffice.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        lightOffice.setPhoto3(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        lightOffice.setPhoto4(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        lightOffice.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto3(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto4(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)).trim());
 
         
-        lightOffice.setDescriptionEn(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        lightOffice.setVideo1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setDescriptionEn(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setVideo1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         
         fis.close();
-        return lightOffice;
+        return bearingsIndustrial;
     }
- 
-       private static String getUrl (String str){
-        return   str.replaceAll(" ", "-")
-                    .replaceAll("'", "-")
-                    .replaceAll("\"", "-")
-                    .replaceAll(",", "-")
-                    .replaceAll(":", "-")
-                    .replaceAll(";", "-")
-                    .replaceAll("\\.", "-")
-                    .replaceAll("&", "-") 
-                    .replaceAll("/", "-") 
-                    .replaceAll("\\|", "-") // ??
-                    .replaceAll("!", "-")
-                    .replaceAll("\\?", "-")
-                    .replaceAll("\\(", "-")
-                    .replaceAll("\\)", "-")
-                    .replaceAll("---", "-") 
-                    .replaceAll("--", "-")
-                    .replaceAll("--", "-") ;
-       }
+    
        private static String getID (String str){
         return   str.replaceAll(" ", "")
                     .replaceAll("'", "")

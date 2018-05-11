@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="bearings_indusnrial", schema = "", catalog = "bearings_test")
+@Table(name="bearings_industrial", schema = "", catalog = "light_test")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "BearingsIndustrial.findAll", query = "SELECT l FROM BearingsIndustrial l"),
@@ -28,11 +28,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "BearingsIndustrial.findBySubType", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType = :subType"),
     @NamedQuery(name = "BearingsIndustrial.findByModel", query = "SELECT l FROM BearingsIndustrial l WHERE l.model = :model"),
     @NamedQuery(name = "BearingsIndustrial.findByManufacturer", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer = :manufacturer"),
-    @NamedQuery(name = "BearingsIndustrial.findByCountry", query = "SELECT l FROM LightOffice l WHERE l.country = :country"),
-    @NamedQuery(name = "BearingsIndustrial.findByBasicDinamicLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicDinamicLoadRating = :basicDinamicLoadRating"),
+    @NamedQuery(name = "BearingsIndustrial.findByCountry", query = "SELECT l FROM BearingsIndustrial l WHERE l.country = :country"),
+    @NamedQuery(name = "BearingsIndustrial.findByBasicDynamicLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicDynamicLoadRating = :basicDynamicLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByBasicStaticLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicStaticLoadRating = :basicStaticLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByFatiqueLoadLimit", query = "SELECT l FROM BearingsIndustrial l WHERE l.fatiqueLoadLimit = :fatiqueLoadLimit"),
-    @NamedQuery(name = "BearingsIndustrial.findByReferenseSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.referenseSpeed = :referenseSpeed"),
+    @NamedQuery(name = "BearingsIndustrial.findByReferenceSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.referenceSpeed = :referenceSpeed"),
     @NamedQuery(name = "BearingsIndustrial.findByLimitingSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.limitingSpeed = :limitingSpeed"),
     @NamedQuery(name = "BearingsIndustrial.findBySize", query = "SELECT l FROM BearingsIndustrial l WHERE l.size = :size"),
     @NamedQuery(name = "BearingsIndustrial.findByWeight", query = "SELECT l FROM BearingsIndustrial l WHERE l.weight = :weight"),
@@ -84,12 +84,10 @@ public class BearingsIndustrial implements Serializable {
     private String country;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 245)
-    @Column(name = "basic_dinamic_load_rating")
-    private int basicDinamicLoadRating;
+    @Column(name = "basic_dynamic_load_rating")
+    private int basicDynamicLoadRating;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
     @Column(name = "basic_static_load_rating")
     private int basicStaticLoadRating;
     @Basic(optional = false)
@@ -98,11 +96,10 @@ public class BearingsIndustrial implements Serializable {
     private int fatiqueLoadLimit;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "referense_speed")
-    private int referenseSpeed;
+    @Column(name = "reference_speed")
+    private int referenceSpeed;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 245)
     @Column(name = "limiting_speed")
     private int limitingSpeed;
     @Basic(optional = false)
@@ -152,18 +149,18 @@ public class BearingsIndustrial implements Serializable {
     }
 
     public BearingsIndustrial(String model, String type, String subType, 
-            String manufacturer, String country, int basicDinamicLoadRating, 
-            int basicStaticLoadRating, int fatiqueLoadLimit, int referenseSpeed, 
+            String manufacturer, String country, int basicDynamicLoadRating, 
+            int basicStaticLoadRating, int fatiqueLoadLimit, int referenceSpeed, 
             int limitingSpeed, String size, String weight, String temperatureWork, String guarantee) {
         this.model = model;
         this.type = type;
         this.subType = type;
         this.manufacturer = manufacturer;
         this.country = country;
-        this.basicDinamicLoadRating = basicDinamicLoadRating;
+        this.basicDynamicLoadRating = basicDynamicLoadRating;
         this.basicStaticLoadRating = basicStaticLoadRating;
         this.fatiqueLoadLimit = fatiqueLoadLimit;
-        this.referenseSpeed = referenseSpeed;
+        this.referenceSpeed = referenceSpeed;
         this.limitingSpeed = limitingSpeed;
         this.size = size;
         this.weight = weight;
@@ -185,6 +182,14 @@ public class BearingsIndustrial implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+     public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.type = subType;
     }
 
     public String getModel() {
@@ -211,12 +216,12 @@ public class BearingsIndustrial implements Serializable {
         this.country = country;
     }
 
-    public int getBasicDinamicLoadRating() {
-        return basicDinamicLoadRating;
+    public int getBasicDynamicLoadRating() {
+        return basicDynamicLoadRating;
     }
 
-    public void setBasicDinamicLoadRating(int basicDinamicLoadRating) {
-        this.basicDinamicLoadRating = basicDinamicLoadRating;
+    public void setBasicDynamicLoadRating(int basicDynamicLoadRating) {
+        this.basicDynamicLoadRating = basicDynamicLoadRating;
     }
 
     public int getBasicStaticLoadRating() {
@@ -235,12 +240,12 @@ public class BearingsIndustrial implements Serializable {
         this.fatiqueLoadLimit = fatiqueLoadLimit;
     }
 
-    public int getReferenseSpeed() {
-        return referenseSpeed;
+    public int getReferenceSpeed() {
+        return referenceSpeed;
     }
 
-    public void setReferenseSpeed(int referenseSpeed) {
-        this.referenseSpeed = referenseSpeed;
+    public void setReferenceSpeed(int referenceSpeed) {
+        this.referenceSpeed = referenceSpeed;
     }
 
     public int getLimitingSpeed() {

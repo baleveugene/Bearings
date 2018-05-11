@@ -22,12 +22,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Home
  */
 @Entity
-@Table(name="bearings_industrial_size", schema = "", catalog = "Bearings")
+@Table(name="bearings_industrial_type", schema = "", catalog = "light_test")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BearingsIndustrialSize.findAll", query = "SELECT l FROM BearingsIndustrialType l"),
-    @NamedQuery(name = "BearingsIndustrialSize.findBySize", query = "SELECT l FROM BearingsIndustrialType l WHERE l.size = :size"),
-    @NamedQuery(name = "BearingsIndustrialSize.findByNum", query = "SELECT l FROM BearingsIndustrialType l WHERE l.num = :num")})
+    @NamedQuery(name = "BearingsIndustrialType.findAll", query = "SELECT l FROM BearingsIndustrialType l"),
+    @NamedQuery(name = "BearingsIndustrialType.findByType", query = "SELECT l FROM BearingsIndustrialType l WHERE l.type = :type"),
+    @NamedQuery(name = "BearingsIndustrialType.findByNum", query = "SELECT l FROM BearingsIndustrialType l WHERE l.num = :num")})
 public class BearingsIndustrialType implements Serializable {
 
     private static final long serialVersionUID = 1L;
