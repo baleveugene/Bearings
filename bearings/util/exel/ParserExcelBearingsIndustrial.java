@@ -52,21 +52,33 @@ public class ParserExcelBearingsIndustrial  {
         df.formatCellValue(rowIterator.next().getCell(1)).trim();
         printInFile("readBearingsIndustrial.txt", "1");
         
-        bearingsIndustrial.setType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getType());
+        rowIterator.next(); 
         
         bearingsIndustrial.setSubType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubType());
+        System.out.println(bearingsIndustrial.getSubType());
+        
+        bearingsIndustrial.setType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getType());
+        System.out.println(bearingsIndustrial.getType());
+        
+        
         
         bearingsIndustrial.setModel(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "4 getModel = " + bearingsIndustrial.getModel());             
+        System.out.println(bearingsIndustrial.getModel());
+        
+        bearingsIndustrial.setUrl(getUrl(bearingsIndustrial.getModel())); bearingsIndustrial.setId(getID(bearingsIndustrial.getModel()));
+        printInFile("readLightOffice.txt", "4 setUrl"  );
         
         bearingsIndustrial.setManufacturer(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
          printInFile("readBearingsIndustrial.txt", "5 setManufacturer = " + bearingsIndustrial.getManufacturer());
+         System.out.println(bearingsIndustrial.getManufacturer());
          
         bearingsIndustrial.setCountry(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
          printInFile("readBearingsIndustrial.txt", "6 setCountry = " + bearingsIndustrial.getCountry());        
-        
+        System.out.println(bearingsIndustrial.getCountry());
+         
         bearingsIndustrial.setBasicDynamicLoadRating(intFromCell(rowIterator, df)); 
         bearingsIndustrial.setBasicStaticLoadRating(intFromCell(rowIterator, df));
         bearingsIndustrial.setFatiqueLoadLimit(intFromCell(rowIterator, df));
@@ -85,9 +97,9 @@ public class ParserExcelBearingsIndustrial  {
         
         bearingsIndustrial.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         bearingsIndustrial.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        bearingsIndustrial.setPhoto3(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+/*        bearingsIndustrial.setPhoto3(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         bearingsIndustrial.setPhoto4(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        bearingsIndustrial.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        bearingsIndustrial.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)).trim()); */
 
         
         bearingsIndustrial.setDescriptionEn(df.formatCellValue(rowIterator.next().getCell(1)).trim());
@@ -97,6 +109,26 @@ public class ParserExcelBearingsIndustrial  {
         return bearingsIndustrial;
     }
     
+       private static String getUrl (String str){
+        return   str.replaceAll(" ", "-")
+                    .replaceAll("'", "-")
+                    .replaceAll("\"", "-")
+                    .replaceAll(",", "-")
+                    .replaceAll(":", "-")
+                    .replaceAll(";", "-")
+                    .replaceAll("\\.", "-")
+                    .replaceAll("&", "-") 
+                    .replaceAll("/", "-") 
+                    .replaceAll("\\|", "-") // ??
+                    .replaceAll("!", "-")
+                    .replaceAll("\\?", "-")
+                    .replaceAll("\\(", "-")
+                    .replaceAll("\\)", "-")
+                    .replaceAll("---", "-") 
+                    .replaceAll("--", "-")
+                    .replaceAll("--", "-") ;
+       }
+       
        private static String getID (String str){
         return   str.replaceAll(" ", "")
                     .replaceAll("'", "")

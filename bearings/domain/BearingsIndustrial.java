@@ -41,21 +41,24 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "BearingsIndustrial.findByPrice", query = "SELECT l FROM BearingsIndustrial l WHERE l.price = :price"),
     @NamedQuery(name = "BearingsIndustrial.findByPhoto1", query = "SELECT l FROM BearingsIndustrial l WHERE l.photo1 = :photo1"),
     @NamedQuery(name = "BearingsIndustrial.findByPhoto2", query = "SELECT l FROM BearingsIndustrial l WHERE l.photo2 = :photo2"),
-    @NamedQuery(name = "BearingsIndustrial.findByPhoto3", query = "SELECT l FROM BearingsIndustrial l WHERE l.photo3 = :photo3"),
+ //   @NamedQuery(name = "BearingsIndustrial.findByPhoto3", query = "SELECT l FROM BearingsIndustrial l WHERE l.photo3 = :photo3"),
     @NamedQuery(name = "BearingsIndustrial.findByVideo1", query = "SELECT l FROM BearingsIndustrial l WHERE l.video1 = :video1")})
 public class BearingsIndustrial implements Serializable {
 
-    @Size(max = 245)
+/*    @Size(max = 245)
     @Column(name = "photo4")
     private String photo4;
     @Size(max = 245)
     @Column(name = "photo5")
-    private String photo5;
+    private String photo5; */
 
     private static final long serialVersionUID = 1L;
     @Size(max = 255)
     @Column(name = "id")
     private String id;
+    @Size(max = 255)
+    @Column(name = "url")
+    private String url;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
@@ -130,9 +133,9 @@ public class BearingsIndustrial implements Serializable {
     @Size(max = 245)
     @Column(name = "photo2")
     private String photo2;
-    @Size(max = 245)
+/*    @Size(max = 245)
     @Column(name = "photo3")
-    private String photo3;
+    private String photo3; */
     @Lob
     @Size(max = 65535)
     @Column(name = "description_en")
@@ -154,7 +157,7 @@ public class BearingsIndustrial implements Serializable {
             int limitingSpeed, String size, String weight, String temperatureWork, String guarantee) {
         this.model = model;
         this.type = type;
-        this.subType = type;
+        this.subType = subType;
         this.manufacturer = manufacturer;
         this.country = country;
         this.basicDynamicLoadRating = basicDynamicLoadRating;
@@ -175,6 +178,14 @@ public class BearingsIndustrial implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+    
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getType() {
         return type;
@@ -189,7 +200,7 @@ public class BearingsIndustrial implements Serializable {
     }
 
     public void setSubType(String subType) {
-        this.type = subType;
+        this.subType = subType;
     }
 
     public String getModel() {
@@ -312,13 +323,13 @@ public class BearingsIndustrial implements Serializable {
         this.photo2 = photo2;
     }
 
-    public String getPhoto3() {
+/*    public String getPhoto3() {
         return "bearings/industrial/" +   photo3;
     }
 
     public void setPhoto3(String photo3) {
-        this.photo3 = photo3;
-    }
+        this.photo3 = photo3; 
+    } */
 
     public String getDescriptionEn() {
         return descriptionEn;
@@ -361,7 +372,7 @@ public class BearingsIndustrial implements Serializable {
         return "com.springapp.bearings.domain.BearingsIndustrial[ model=" + model + " ]";
     }
 
-    public String getPhoto4() {
+/*    public String getPhoto4() {
         return "bearings/industrial/" +  photo4;
     }
 
@@ -376,5 +387,5 @@ public class BearingsIndustrial implements Serializable {
     public void setPhoto5(String photo5) {
         this.photo5 = photo5;
     }
-    
+    */
 }

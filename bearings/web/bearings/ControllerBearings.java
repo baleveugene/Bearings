@@ -38,13 +38,11 @@ public class ControllerBearings extends PrintInFile {
                                     HttpSession session ) {
         
         ModelAndView mv = new ModelAndView("bearings/bearings_all"); 
-            System.out.println("11");
         if(size ==null && type ==null) {
             mv.addObject("listBearingsIndustrial", bearingsIndustrialService.getListBearingsIndustrial());
         }else{
             mv.addObject("listBearingsIndustrial", bearingsIndustrialService.getListBearingsIndustrial(size, type));
-        } 
-          System.out.println("22");      
+        }               
         mv.addObject("listBearingsSize", bearingsIndustrialService.getListBearingsIndustrialSize()); 
         mv.addObject("listBearingsType", bearingsIndustrialService.getListBearingsIndustrialType()); //  for   filter
         
