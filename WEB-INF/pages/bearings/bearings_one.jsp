@@ -1,5 +1,4 @@
-
-<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
@@ -15,7 +14,7 @@
         <meta name="keywords" content="${vmc.model} for sale, ${vmc.model}, ${vmc.model} price, ${vmc.model} buy">
         <meta name="robots" content="all">
 
-         <title> ${vmc.model} for sale | VMC & HMC </title>
+         <title> ${bearings.model} for sale | VMC & HMC </title>
   
 
         <!-- Bootstrap Core CSS -->
@@ -85,11 +84,11 @@
                         <!--</li>--> 
   
                              <li class="breadcrumb-item">
-                            <a href="/light?type=${lightOffice.type}">Light - ${lightOffice.type}</a>
+                            <a href="/bearings?type=${bearingsIndustrial.type}">Bearings - ${bearingsIndustrial.type}</a>
                         </li> 
                         
                        <li class="breadcrumb-item current">
-                            <a href="">${lightOffice.manufacturer} - ${lightOffice.model}</a>
+                            <a href="">${bearingsIndustrial.manufacturer} - ${bearingsIndustrial.model}</a>
                         </li> 
                     </ul>
                 </li><!-- /.breadcrumb-nav-holder --> 
@@ -117,130 +116,81 @@
     <div class="product-item-holder size-big single-product-gallery small-gallery">
 
         <div id="owl-single-product">
-            <div class="single-product-gallery-item" id="slide1">
-                <!--<a data-rel="prettyphoto" href="../resources/assets/images/products/${vmc.photo1}">-->
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo1}">
-                    <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="${lightOffice.photo1}" 
-                         data-echo="../resources/assets/images/products/${lightOffice.photo1}" />
-                         <!--src="../resources/assets/images/products/${vmc.photo1}"--> 
-                         <!--data-echo="../resources/assets/images/products/${vmc.photo1}" />-->
+            <div class="single-product-gallery-item" id="slide1">         
+                <a data-rel="prettyphoto" href="../resources/assets/images/products/${bearingsIndustrial.photo1}">
+                    <img class="img-responsive" alt="${bearingsIndustrial.model}" 
+                         src="../resources/assets/images/products/${bearingsIndustrial.photo1}" 
+                         data-echo="../resources/assets/images/products/${bearingsIndustrial.photo1}" />                       
                          <!--src="../resources/assets/images/blank.gif"--> 
                 </a>
             </div><!-- /.single-product-gallery-item -->
             
             <div class="single-product-gallery-item" id="slide2">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo2}">
-                    <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="../resources/assets/images/products/${lightOffice.photo2}" 
-                         data-echo="../resources/assets/images/products/${lightOffice.photo2}" />
+                <a data-rel="prettyphoto" href="../resources/assets/images/products/${bearingsIndustrial.photo2}">
+                    <img class="img-responsive" alt="${bearingsIndustrial.model}" 
+                         src="../resources/assets/images/products/${bearingsIndustrial.photo2}" 
+                         data-echo="../resources/assets/images/products/${bearingsIndustrial.photo2}" />
                          <!--src="../resources/assets/images/blank.gif"--> 
                 </a>
             </div><!-- /.single-product-gallery-item -->
             
-            <div class="single-product-gallery-item" id="slide3">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo3}">
-                    <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="../resources/assets/images/products/${lightOffice.photo3}" 
-                         data-echo="../resources/assets/images/products/${lightOffice.photo3}" />
+           <div class="single-product-gallery-item" id="slide3">
+                <a data-rel="prettyphoto" href="../resources/assets/images/products/${bearingsIndustrial.photo3}">
+                    <img class="img-responsive" alt="${bearingsIndustrial.model}" 
+                         src="../resources/assets/images/products/${bearingsIndustrial.photo3}" 
+                         data-echo="../resources/assets/images/products/${bearingsIndustrial.photo3}" />
                          <!--src="../resources/assets/images/blank.gif"--> 
                 </a>
             </div><!-- /.single-product-gallery-item -->
             
             <div class="single-product-gallery-item" id="slide4">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo4}">
-                    <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="../resources/assets/images/products/${lightOffice.photo4}" 
-                         data-echo="../resources/assets/images/products/${lightOffice.photo4}" />
+                <a data-rel="prettyphoto" href="../resources/assets/images/products/${bearingsIndustrial.photo4}">
+                    <img class="img-responsive" alt="${bearingsIndustrial.model}" 
+                         src="../resources/assets/images/products/${bearingsIndustrial.photo4}" 
+                         data-echo="../resources/assets/images/products/${bearingsIndustrial.photo4}" />
                          <!--src="../resources/assets/images/blank.gif"--> 
                 </a>
             </div><!-- /.single-product-gallery-item -->
             
             <div class="single-product-gallery-item" id="slide5">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo5}">
-                    <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="../resources/assets/images/products/${lightOffice.photo5}" 
-                         data-echo="../resources/assets/images/products/${lightOffice.photo5}" />
+                <a data-rel="prettyphoto" href="../resources/assets/images/products/${bearingsIndustrial.photo5}">
+                    <img class="img-responsive" alt="${bearingsIndustrial.model}" 
+                         src="../resources/assets/images/products/${bearingsIndustrial.photo5}" 
+                         data-echo="../resources/assets/images/products/${bearingsIndustrial.photo5}" />
                          <!--src="../resources/assets/images/blank.gif"--> 
                 </a>
             </div><!-- /.single-product-gallery-item -->
-            
-
-
-<!--            <div class="single-product-gallery-item" id="slide2">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/product-gallery-01.jpg">
-                    <img class="img-responsive" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/product-gallery-01.jpg" />
-                </a>
-            </div> /.single-product-gallery-item 
-<!--    
-            <div class="single-product-gallery-item" id="slide3">
-                <a data-rel="prettyphoto" href="../resources/assets/images/products/product-gallery-01.jpg">
-                    <img class="img-responsive" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/product-gallery-01.jpg" />
-                </a>
-            </div> /.single-product-gallery-item -->
+ 
         </div><!-- /.single-product-slider -->
 
 
         <div class="single-product-gallery-thumbs gallery-thumbs">
 
             <div id="owl-single-product-thumbnails">
-                <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                    <!--<img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/bench${lightOffice.id}.jpg" />-->
-                    <!--<img width="67" alt="" src="../resources/assets/images/products/${lightOffice.photo1}" data-echo="../resources/assets/images/products/${lightOffice.photo1}" />-->
-                    <img width="67" alt="${lightOffice.model}" src="../resources/assets/images/products/${lightOffice.photo1}" data-echo="../resources/assets/images/products/${lightOffice.photo1}" />
+                <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="0" href="#slide1">                  
+                    <img width="67" alt="${bearingsIndustrial.model}" src="../resources/assets/images/products/${bearingsIndustrial.photo1}" data-echo="../resources/assets/images/products/${bearingsIndustrial.photo1}" />
                 </a>
 
    
                 <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                    <!--<img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/lightOfficegallery-thumb-01.jpg" />-->
-                    <img width="67" alt="${lightOffice.model}"  src="../resources/assets/images/products/lightOffice${lightOffice.photo2}" data-echo="../resources/assets/images/products/${lightOffice.photo2}"  />
+                    <!--<img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/bearingsIndustrialgallery-thumb-01.jpg" />-->
+                    <img width="67" alt="${bearingsIndustrial.model}"  src="../resources/assets/images/products/${bearingsIndustrial.photo2}" data-echo="../resources/assets/images/products/${bearingsIndustrial.photo2}"  />
                 </a>
 
                 <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                    <!--<img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/lightOfficebench${lightOffice.id}.jpg" />-->
-                    <img width="67" alt="${lightOffice.model}"  src="../resources/assets/images/products/${lightOffice.photo3}" data-echo="../resources/assets/images/products/${lightOffice.photo3}"  />
+                    <!--<img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/bearingsIndustrialbench${bearingsIndustrial.id}.jpg" />-->
+                    <img width="67" alt="${bearingsIndustrial.model}"  src="../resources/assets/images/products/${bearingsIndustrial.photo3}" data-echo="../resources/assets/images/products/${bearingsIndustrial.photo3}"  />
                 </a>
 
                 <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide4">
-                    <img width="67" alt="${vmc.model}"  src="../resources/assets/images/products/${lightOffice.photo4}" data-echo="../resources/assets/images/products/${lightOffice.photo4}"  />
+                    <img width="67" alt="${bearingsIndustrial.model}"  src="../resources/assets/images/products/${bearingsIndustrial.photo4}" data-echo="../resources/assets/images/products/${bearingsIndustrial.photo4}"  />
                 </a>
 
                 <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="4" href="#slide5">                  
-                    <img width="67" alt="${vmc.model}"  src="../resources/assets/images/products/${lightOffice.photo5}" data-echo="../resources/assets/images/products/${lightOffice.photo5}"  />
+                    <img width="67" alt="${bearingsIndustrial.model}"  src="../resources/assets/images/products/${bearingsIndustrial.photo5}" data-echo="../resources/assets/images/products/${bearingsIndustrial.photo5}"  />
                 </a>
 
-<!--                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide4">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/vmcbench${vmc.id}.jpg" />
-                    <img width="67" alt=""  src="${vmc.photo4}" data-echo="${vmc.photo4}"  />
-                </a>-->
-<!--                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/bench${vmc.id}.jpg" />
-                    <img width="67" alt="" src="../resources/assets/images/products/bench4.jpg" data-echo="../resources/assets/images/products/bench4.jpg" />-->
-                <!--</a>-->
-
-<!--                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>
-
-                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>-->
-
-<!--                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>
-
-                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>
-
-                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>
-
-                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                    <img width="67" alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/gallery-thumb-01.jpg" />
-                </a>-->
+                
             </div> 
                 <!--/#owl-single-product-thumbnails--> 
 
@@ -264,8 +214,8 @@
         <!--<div class="star-holder inline"><div class="star" data-score="4"></div></div>-->
         <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
 
-        <div class="title"><a href="#">${lightOffice.model}</a></div>
-        <div class="brand">  Type: ${lightOffice.type}</div>
+        <div class="title"><a href="#">${bearingsIndustrial.model}</a></div>
+        <div class="brand">  Type: ${bearingsIndustrial.type}</div>
 
         <div class="social-row">
             <span class="st_facebook_hcount"></span>
@@ -274,13 +224,12 @@
         </div>
 
         <div class="buttons-holder">
-            <!--<a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${vmc.id}">add to wishlist</a>-->
-            <!--<a class="btn-add-to-compare" href="/compare/vmc/add?id=${vmc.id}">add to compare list</a>-->
+            <!--<a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${bearingsIndustrial.id}">add to wishlist</a>-->
+            <!--<a class="btn-add-to-compare" href="/compare/vmc/add?id=${bearingsIndustrial.id}">add to compare list</a>-->
         </div>
 
         <div class="excerpt">
-            <p>${lightOffice.descriptionEn}</p>
-            <!--<p>${vmc.info2ru}</p>-->
+            <p>${bearingsIndustrial.descriptionEn}</p>
         </div>
         
         
@@ -301,8 +250,7 @@
             </div>-->
 
    
-<!--<a id="addto-cart" href="/add-product-to-customer-basket?id=${vmc.id}&model=${vmc.model}"  class="le-button huge"><spring:message code="vmc.addtocart" text="add to cart" /> </a>-->
-<a id="addto-cart" href="/light/pdf/${lightOffice.url}"  class="le-button huge"><spring:message code="lightone.download_pdf" text="Download PDF" /> </a>
+<a id="addto-cart" href="/bearings/pdf/${bearingsIndustrial.url}"  class="le-button huge"><spring:message code="bearingsone.download_pdf" text="Download PDF" /> </a>
 
     
         </div><!-- /.qnt-holder -->
@@ -336,169 +284,80 @@
                     
     <c:choose>
         
-        <c:when test="${empty lightOffice.video1}">
+        <c:when test="${empty bearingsIndustrial.video1}">
             <iframe width="853" height="480" src="https://www.youtube.com/embed/mQ205po5vk4" frameborder="0" allowfullscreen></iframe>              
         </c:when>
     
         <c:otherwise>   
-            <iframe width="853" height="480" src="${lightOffice.video1}" frameborder="0" allowfullscreen></iframe>              
-            <br>
-<!--            <br>
-                <c:if test="${not empty vmc.video2}">
-               <iframe width="853" height="480"  src="${vmc.video2}" frameborder="0" allowfullscreen></iframe>
-                <br>
-                <br>
-                </c:if>
-  -->
-
-      
+            <iframe width="853" height="480" src="${bearingsIndustrial.video1}" frameborder="0" allowfullscreen></iframe>              
+            <br>     
         </c:otherwise>
                 
     </c:choose>          
                     
-                    
-  
-                    
-
                 </div> 
-          
-
-                
-                
-                
+             
                 <div class="tab-pane" id="additional-info">
                     <ul class="tabled-data">
-
-                        
+             
                         <li>
-                            <label><spring:message code="lightcompare.type" text="type" /></label>
-                            <div class="value">${lightOffice.type}</div>
+                            <label><spring:message code="bearingscompare.type" text="type" /></label>
+                            <div class="value">${bearingsIndustrial.type}</div>
                             
                         </li>
                         <li>
-                            <label><spring:message code="lightcompare.manufacturer" text="Manufacturer" /></label>
-                            <div class="value">${lightOffice.manufacturer}</div>
+                            <label><spring:message code="bearingscompare.manufacturer" text="Manufacturer" /></label>
+                            <div class="value">${bearingsIndustrial.manufacturer}</div>
                             
                         </li>
                         <li>
-                            <label><spring:message code="lightcompare.country" text="Country" /></label>
-                            <div class="value">${lightOffice.country}</div>
+                            <label><spring:message code="bearingscompare.country" text="Country" /></label>
+                            <div class="value">${bearingsIndustrial.country}</div>
                         </li>
                         <li>
-                            <label><spring:message code="lightcompare.power" text="Power, Watt"/></label>
-                            <div class="value">${lightOffice.power}</div>
+                            <label><spring:message code="bearingscompare.basic_dynamic_load_rating" text="Basic dynamic load rating, kN"/></label>
+                            <div class="value">${bearingsIndustrial.basicDynamicLoadRating}</div>
                         </li>
                         <li>
-                            <label><spring:message code="lightcompare.diffuser" text="Diffuser"/></label>
-                            <div class="value">${lightOffice.diffuser}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.luminous_flux" text="luminous Flux"/></label>
-                            <div class="value">${lightOffice.luminousFlux}</div>
+                            <label><spring:message code="bearingscompare.basic_static_load_rating" text="Basic static load rating, kN"/></label>
+                            <div class="value">${bearingsIndustrial.basicStaticLoadRating}</div>
                         </li>
                         
                         <li>
-                            <label><spring:message code="lightcompare.luminous_flux_emergency" text="luminous Flux Emergency"/></label>
-                            <div class="value">
-                                                <c:choose>
-                                                <c:when test="${lightOffice.luminousFluxEmergency==0}">
-                                                  - 
-                                                </c:when>    
-                                                <c:otherwise>
-                                               ${lightOffice.luminousFluxEmergency} 
-                                                </c:otherwise>
-                                                </c:choose>
-                            </div>
+                            <label><spring:message code="bearingscompare.fatique_load_limit" text="Fatique load limit, kN"/></label>
+                            <div class="value">${bearingsIndustrial.fatiqueLoadLimit}</div>
                         </li>
                         
                         <li>
-                            <label><spring:message code="lightcompare.temperature_glow" text="temperature Glow"/></label>
-                            <div class="value">${lightOffice.temperatureGlow}</div>
+                            <label><spring:message code="bearingscompare.reference_speed" text="Reference speed, r/min"/></label>
+                            <div class="value">${bearingsIndustrial.referenceSpeed}</div>
                         </li>
                         
                         <li>
-                            <label><spring:message code="lightcompare.size" text="size"/></label>
-                            <div class="value">
-                                ${lightOffice.size} 
-                                <br/>  
-                                 <c:if test="${not empty item1.sizeInstallation}" >
-                                              <br/>  (${lightOffice.sizeInstallation} Installation size)
-                                            </c:if>
-                            </div>
+                            <label><spring:message code="bearingscompare.limiting_speed" text="Limiting speed, r/min"/></label>
+                            <div class="value">${bearingsIndustrial.limitingSpeed}</div>
+                        </li>                                                                              
+                        
+                        <li>
+                            <label><spring:message code="bearingscompare.size" text="size"/></label>
+                            <div class="value">${bearingsIndustrial.size}</div>
+                        </li>                                              
+                        
+                        <li>
+                            <label><spring:message code="bearingscompare.weight" text="weight, kg"/></label>
+                            <div class="value">${bearingsIndustrial.weight}</div>
                         </li>
                         
                         <li>
-                            <label><spring:message code="lightcompare.coefficient_pulsation" text="coefficient Pulsation"/></label>
-                            <div class="value">${lightOffice.coefficientPulsation}</div>
+                            <label><spring:message code="bearingscompare.work_temperature" text="Work temperature"/></label>
+                            <div class="value">${bearingsIndustrial.temperatureWork}</div>
                         </li>
                         
                         <li>
-                            <label><spring:message code="lightcompare.coefficient_power" text="coefficient Power"/></label>
-                            <div class="value">${lightOffice.coefficientPower}</div>
+                            <label><spring:message code="bearingscompare.guarantee" text="guarantee, years"/> </label>
+                            <div class="value">${bearingsIndustrial.guarantee}</div>
                         </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.type_lidc" text="type Lidc"/></label>
-                            <div class="value">${lightOffice.typeLidc}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.index_color" text="index Color"/></label>
-                            <div class="value">${lightOffice.indexColor}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.enclosure_protection" text="Enclosure protection , IP"/></label>
-                            <div class="value">${lightOffice.security}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.weight" text="weight, kg"/></label>
-                            <div class="value">${lightOffice.weight}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.work_temperature" text="Work temperature"/></label>
-                            <div class="value">${lightOffice.temperatureWork}</div>
-                        </li>
-                        
-                        <li>
-                            <label><spring:message code="lightcompare.guarantee" text="guarantee, years"/> </label>
-                            <div class="value">${lightOffice.guarantee}</div>
-                        </li>
-                        
-                        <li>
-                            <label>dimming Function</label>
-                            <div class="value">
-                            <c:choose>
-                                <c:when test="${empty lightOffice.dimmingFunction}">
-                                 <p> - </p>
-                                </c:when>    
-                                <c:otherwise>
-                               <p>  ${lightOffice.dimmingFunction}  </p>
-                                </c:otherwise>
-                            </c:choose>     
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <label>mounting Type</label>
-                            <div class="value">
-                                <c:choose>
-                                    <c:when test="${empty lightOffice.mountingType}">
-                                     <p> - </p>
-                                    </c:when>    
-                                    <c:otherwise>
-                                   <p> ${lightOffice.mountingType} </p>
-                                    </c:otherwise>
-                                </c:choose>    
-                            </div>
-                        </li>
-                        
-      
-                        
-                        
+                                       
                     </ul><!-- /.tabled-data -->
 
 <!--                    <div class="meta-row">
@@ -545,7 +404,7 @@
         <div class="carousel-holder hover">
             
             <div class="title-nav">
-                <h2 class="h1">Random Light</h2>
+                <h2 class="h1">Random Bearings</h2>
                 <div class="nav-holder">
                     <a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
                     <a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
@@ -557,22 +416,22 @@
                
                 
                 
-         <c:forEach items="${listRandomVmc}" var="vmc">
+         <c:forEach items="${listRandomBearings}" var="bearings">
                     
                
                 <div class="no-margin carousel-item product-item-holder size-small hover">
                     <div class="product-item">
                         <!--<div class="ribbon red"><span>sale</span></div>--> 
                         <div class="image">
-                            <a href="/vmc${vmc.id}">
-                            <img alt="${vmc.model}" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/${vmc.photo1}" />
+                            <a href="/bearings${bearings.id}">
+                            <img alt="${bearings.model}" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/${bearings.photo1}" />
                              </a>
                         </div>
                         <div class="body">
                             <div class="title">
-                                <a href="/vmc${vmc.id}">${vmc.model} <br>     ${vmc.manufacturer}</a>
+                                <a href="/bearings${bearings.id}">${bearings.model} <br>     ${bearings.manufacturer}</a>
                             </div>
-                            <div class="brand">${vmc.year}</div>
+                            <div class="brand">${bearings.year}</div>
                         </div>
 <!--                        <div class="prices">
                             <div class="price-current text-right">$1199.00</div>

@@ -51,6 +51,13 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
         return (BearingsIndustrial) query.uniqueResult();
     }
     
+    @Override
+    @SuppressWarnings("unchecked")
+    public BearingsIndustrial getBearingsByUrl(String url) { 
+        Query query = sessionFactory.getCurrentSession().createQuery("from BearingsIndustrial where url='" + url+ "'" );
+        return (BearingsIndustrial) query.uniqueResult();
+    }
+    
     //       ORDER BY model DESC
     
     @Override @SuppressWarnings("unchecked")

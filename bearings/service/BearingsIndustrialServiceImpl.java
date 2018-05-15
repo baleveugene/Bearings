@@ -10,6 +10,7 @@ import com.springapp.bearings.domain.BearingsIndustrialType;
 import com.springapp.bearings.util.ImageUtilBearings;
 import com.springapp.bearings.util.UploadMultipartFileUtilBearings;
 import com.springapp.bearings.util.exel.ParserExcelBearingsIndustrial;
+import com.springapp.light.domain.LightOffice;
 
 import java.io.File;
 import java.io.IOException;
@@ -81,6 +82,11 @@ public class BearingsIndustrialServiceImpl implements BearingsIndustrialService 
     @Override @Transactional
     public BearingsIndustrial getBearingsById(String id) {
         return  bearingsIndustrialDao.getBearingsById(id);
+    }
+    
+    @Override @Transactional
+    public BearingsIndustrial getBearingsByUrl(String url) {
+    return  bearingsIndustrialDao.getBearingsByUrl(url);
     }
     
     @Override @Transactional

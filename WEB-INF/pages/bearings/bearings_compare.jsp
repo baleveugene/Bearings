@@ -12,10 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <meta name="keywords" content="Light compare">
+        <meta name="keywords" content="Bearings compare">
         <meta name="robots" content="all">
 
-        <title>Light compare</title>
+        <title>Bearings compare</title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="../resources/assets/css/bootstrap.min.css">
@@ -92,11 +92,11 @@
                           <%@include file="/WEB-INF/pages/in/breadcrumb_item.jsp" %>
                         <!--</li>--> 
                         <li class="breadcrumb-item current">
-                            <a href="light">Light</a>
+                            <a href="/bearings">Bearings</a>
                         </li> 
                         <li class="breadcrumb-item current gray">
                             <!--<a href="index.php?page=compaore">Product Comparison</a>-->
-                            <a href="#">Light Comparison</a>
+                            <a href="#">Bearings Comparison</a>
                         </li>
                     </ul>
                 </li> 
@@ -112,7 +112,7 @@
         <div class="inner-xs">
             <div class="page-header">
                 <h2 class="page-title">
-                    Light Comparison            
+                    Bearings Comparison            
                 </h2>
             </div>
         </div><!-- /.section-page-title -->
@@ -128,25 +128,22 @@
                     <tr>
                         <td>&nbsp;</td>
                        
-                   <c:forEach items="${listLight}" var="item1">
+                   <c:forEach items="${listBearings}" var="item1">
                        
                         <td class="text-center">
 
                             <div class="image-wrap">
                                 
-                                <a data-product_id="39" href="/compare-light-del-${item1.id}" class="remove-link">
+                                <a data-product_id="39" href="/compare-bearings-del-${item1.id}" class="remove-link">
                                     <i class="fa fa-times-circle">  </i>
                                 </a>
                                 
                                 <!--<a href="vmc${item1.id}" > <img width="220" height="154" alt="Iconia W700" class="attachment-yith-woocompare-image" src="../resources/assets/images/products/${item1.photo1}">   </a>-->                     
-                                <a href="/light-${item1.url}" > <img width="220" height="154" alt="Iconia W700" class="attachment-yith-woocompare-image" src="../resources/assets/images/products/${item1.photo1}">   </a>                     
+                                <a href="/bearings-${item1.url}" > <img width="220" height="154" alt="Iconia W700" class="attachment-yith-woocompare-image" src="../resources/assets/images/products/${item1.photo1}">   </a>                     
 
                             </div>
                                 
-                                <p><a href="/light-${item1.url}" > <strong>${item1.model}</strong> </a> </p>
-                                <c:if test="${item1.luminousFluxEmergency > 0}">
-                                    <p > <spring:message code="lightall.emergency" text="Emergency" /> </p>
-                                </c:if>
+                                <p><a href="/bearings-${item1.url}" > <strong>${item1.model}</strong> </a> </p>        
                         </td>
                    </c:forEach> 
                         
@@ -164,7 +161,7 @@
                     
 <!--                    <tr class="tr-add-to-cart">
                         <td>&nbsp;</td>
-                    <c:forEach items="${listLight}" var="item1">
+                    <c:forEach items="${listBearings}" var="item1">
                         <td class="text-center">
                             <div class="add-cart-button">
                                 <a class="le-button add_to_cart_button  product_type_simple" href="/add-product-to-customer-basket.htm?id=${item1.id}&model=${item1.model}">Add to cart</a>
@@ -180,8 +177,8 @@
                 <tbody>
                                                                                                      
                   <tr class="comparison-item price">   
-                        <th><spring:message code="lightcompare.manufacturer" text="Manufacturer"/></th>
-                     <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.manufacturer" text="Manufacturer"/></th>
+                     <c:forEach items="${listBearings}" var="item1">
                         <td class="comparison-item-cell odd product_39">
                             <span class="amount">${item1.manufacturer}</span>                        
                         </td>
@@ -190,8 +187,8 @@
                     </tr>
                                                                                             
                     <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.type" text="Type"/></th>
-                                <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.type" text="Type"/></th>
+                                <c:forEach items="${listBearings}" var="item1">
                                     <td class="comparison-item-cell odd product_39">
                                         <p> ${item1.type} </p>
                                     </td>
@@ -202,8 +199,8 @@
                         
                     
                     <tr class="comparison-item price">
-                        <th><spring:message code="lightcompare.сountry" text="Country"/> </th>
-                     <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.сountry" text="Country"/> </th>
+                     <c:forEach items="${listBearings}" var="item1">
                         <td class="comparison-item-cell odd product_39">
                             <!--<span class="amount">${item1.country}</span>-->                        
                             <p>${item1.country}</p>                        
@@ -213,131 +210,63 @@
                     
                     
                     <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.power" text="Power, Watt"/></th>
-                                <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.basic_dynamic_load_rating" text="Basic dynamic load rating, r/min"/></th>
+                                <c:forEach items="${listBearings}" var="item1">
                                     <td class="comparison-item-cell odd product_39">
-                                        <p> ${item1.power} </p>
+                                        <p> ${item1.basicDymamicLoadRating} </p>
                                     </td>
                                 </c:forEach>
                     </tr>
                                     
                      <tr class="comparison-item price">
-                        <th><spring:message code="lightcompare.diffuser" text="Diffuser"/></th>
-                     <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.basic_static_load_rating" text="Basic static load rating, r/min"/></th>
+                     <c:forEach items="${listBearings}" var="item1">
                         <td class="comparison-item-cell odd product_39">                                           
-                            <p>${item1.diffuser}</p>                        
+                            <p>${item1.basicStaticLoadRating}</p>                        
                         </td>
                      </c:forEach>
                     </tr>                         
                     
                     
                     <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.luminous_flux" text="luminous Flux"/></th>
-                                <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.fatique_load_limit" text="Fatique load limit"/></th>
+                                <c:forEach items="${listBearings}" var="item1">
                                     <td class="comparison-item-cell odd product_39">
-                                        <p> ${item1.luminousFlux} </p>
+                                        <p> ${item1.fatiqueLoadLimit} </p>
                                     </td>
                                 </c:forEach>
                     </tr> 
                     
-                    <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.luminous_flux_emergency" text="luminous Flux Emergency"/></th>
-                                <c:forEach items="${listLight}" var="item1">
-                                    <td class="comparison-item-cell odd product_39">
-                                             <c:choose>
-                                                <c:when test="${item1.luminousFluxEmergency==0}">
-                                                 <p> - </p>
-                                                </c:when>    
-                                                <c:otherwise>
-                                               <p> ${item1.luminousFluxEmergency} </p>
-                                                </c:otherwise>
-                                            </c:choose>
-                                       
-                                    </td>
-                                </c:forEach>
-                    </tr>                    
-                                                    
-                    
-                     <tr class="comparison-item price">
-                        <th><spring:message code="lightcompare.temperature_glow" text="temperature Glow"/></th>
-                     <c:forEach items="${listLight}" var="item1">
-                        <td class="comparison-item-cell odd product_39">                                           
-                            <p>${item1.temperatureGlow}</p>                        
-                        </td>
-                     </c:forEach>
-                    </tr>                         
-                    
-                       <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.size" text="size"/></th>
-                                <c:forEach items="${listLight}" var="item1">
-                                    <td class="comparison-item-cell odd product_39">
-                                        <p> ${item1.size} 
-                                            <c:if test="${not empty item1.sizeInstallation}" >
-                                              <br/>  (${item1.sizeInstallation} Installation size)
-                                            </c:if>
-                                                
-                                        </p>
-                                    </td>
-                                </c:forEach>
-                    </tr>                    
-                    
-
-                    
-                       <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.coefficient_pulsation" text="coefficient Pulsation"/></th>
-                                <c:forEach items="${listLight}" var="item1">
-                                    <td class="comparison-item-cell odd product_39">
-                                        <p> ${item1.coefficientPulsation} </p>
-                                    </td>
-                                </c:forEach>
-                       </tr>                       
-                    
                     <tr class="comparison-item price">
-                        <th><spring:message code="lightcompare.coefficient_power" text="coefficient Power"/></th>
-                     <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.reference_speed" text="Reference speed"/></th>
+                     <c:forEach items="${listBearings}" var="item1">
                         <td class="comparison-item-cell odd product_39">                                           
-                            <p>${item1.coefficientPower}</p>                        
+                            <p>${item1.referenceSpeed}</p>                        
+                        </td>
+                     </c:forEach>
+                    </tr>    
+                  
+                     <tr class="comparison-item description">
+                        <th><spring:message code="bearingscompare.limiting_speed" text="Limiting speed"/></th>
+                     <c:forEach items="${listBearings}" var="item1">
+                        <td class="comparison-item-cell odd product_39">                                           
+                            <p>${item1.limitingSpeed}</p>                        
                         </td>
                      </c:forEach>
                     </tr>                         
                     
-                       <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.type_lidc" text="type Lidc"/></th>
-                                <c:forEach items="${listLight}" var="item1">
+                       <tr class="comparison-item price">
+                        <th><spring:message code="bearingscompare.size" text="size"/></th>
+                                <c:forEach items="${listBearings}" var="item1">
                                     <td class="comparison-item-cell odd product_39">
-                                        <p> ${item1.typeLidc} </p>
-                                        <c:if test="${not empty item1.photo5}">
-                                         <img width="220" height="154" alt="${item1.photo5}" class="attachment-yith-woocompare-image" src="../resources/assets/images/products/${item1.photo5}">                   
-                                        </c:if>
+                                        <p> ${item1.size}</p>
                                     </td>
                                 </c:forEach>
-                       </tr>                           
-                       
+                    </tr>                                                                       
 
-                   <tr class="comparison-item price">
-                        <th><spring:message code="lightcompare.index_color" text="index Color"/></th>
-                     <c:forEach items="${listLight}" var="item1">
-                        <td class="comparison-item-cell odd product_39">                                           
-                            <p>${item1.indexColor}</p>                        
-                        </td>
-                     </c:forEach>
-                    </tr>      
-                    
-
-                    
-                            
-                       <tr class="comparison-item price">
-                            <th><spring:message code="lightcompare.enclosure_protection" text="Enclosure protection , IP"/></th>
-                         <c:forEach items="${listLight}" var="item1">
-                            <td class="comparison-item-cell odd product_39">                                           
-                                <p>${item1.security}</p>                        
-                            </td>
-                         </c:forEach>
-                        </tr>                         
-
-                                   <tr class="comparison-item price">
-                                        <th><spring:message code="lightcompare.weight" text="weight, kg"/></th>
-                                     <c:forEach items="${listLight}" var="item1">
+                                   <tr class="comparison-item description">
+                                        <th><spring:message code="bearingscompare.weight" text="weight, kg"/></th>
+                                     <c:forEach items="${listBearings}" var="item1">
                                         <td class="comparison-item-cell odd product_39">                                           
                                             <p>${item1.weight}</p>                        
                                         </td>
@@ -345,8 +274,8 @@
                                     </tr>                         
                     
                        <tr class="comparison-item description">
-                        <th><spring:message code="lightcompare.work_temperature" text="Work temperature"/> </th>
-                                <c:forEach items="${listLight}" var="item1">
+                        <th><spring:message code="bearingscompare.work_temperature" text="Work temperature"/> </th>
+                                <c:forEach items="${listBearings}" var="item1">
                                     <td class="comparison-item-cell odd product_39">
                                         <p> ${item1.temperatureWork} </p>
                                     </td>
@@ -355,52 +284,15 @@
                        
                        
 <tr class="comparison-item description">
-<th><spring:message code="lightcompare.guarantee" text="guarantee, years"/> </th>
-        <c:forEach items="${listLight}" var="item1">
+<th><spring:message code="bearingscompare.guarantee" text="guarantee, years"/> </th>
+        <c:forEach items="${listBearings}" var="item1">
             <td class="comparison-item-cell odd product_39">
                 <p> ${item1.guarantee} </p>
             </td>
         </c:forEach>
 </tr>   
-
-        <tr class="comparison-item description">
-        <th>dimming Function</th>
-                <c:forEach items="${listLight}" var="item1">
-                    <td class="comparison-item-cell odd product_39">
-                            <c:choose>
-                                <c:when test="${empty item1.dimmingFunction}">
-                                 <p> - </p>
-                                </c:when>    
-                                <c:otherwise>
-                               <p>  ${item1.dimmingFunction}  </p>
-                                </c:otherwise>
-                            </c:choose>                          
-                    </td>
-                </c:forEach>
-        </tr>                       
-                     
-                       
-                     
-                <tr class="comparison-item description">
-                <th>mounting Type</th>
-                    <c:forEach items="${listLight}" var="item1">
-                        <td class="comparison-item-cell odd product_39">
-                                 <c:choose>
-                                    <c:when test="${empty item1.mountingType}">
-                                     <p> - </p>
-                                    </c:when>    
-                                    <c:otherwise>
-                                   <p> ${item1.mountingType} </p>
-                                    </c:otherwise>
-                                </c:choose>       
-                        </td>
-                    </c:forEach>
-                </tr>                       
-                                               
-                    
-       
-                            
-                                <sec:authorize access="hasRole('ROLE_USER')">
+              
+           <!--                     <sec:authorize access="hasRole('ROLE_USER')">
                                         <tr class="comparison-item description">
                                         <th>Price (EXW)</th>
                                             <c:forEach items="${compareCartVmc.items}" var="item1">
@@ -409,7 +301,7 @@
                                                 </td>
                                             </c:forEach>
                                         </tr>  
-                                </sec:authorize>
+                                </sec:authorize>-->
                        
                        
                        

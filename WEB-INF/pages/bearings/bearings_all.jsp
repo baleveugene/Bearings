@@ -47,7 +47,7 @@
         <link rel="stylesheet" href="../resources/assets/css/font-awesome.min.css">
         
         <!-- Favicon -->
-   <!--     <link rel="shortcut icon" href="../resources/assets/images/favicon.ico"> -->
+        <link rel="shortcut icon" href="../resources/assets/images/favicon.ico"> 
 
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
@@ -84,7 +84,7 @@
                         <!--</li>--> 
   
                        <li class="breadcrumb-item current">
-                            <a href="#">Bearings ${type}</a>
+                            <a href="#">Bearings-${type}</a>
                         </li> 
                     </ul>
                 </li><!-- /.breadcrumb-nav-holder -->
@@ -207,14 +207,14 @@
                             
                                 <div class="image">
                                     <!--<img alt="" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/${vmc.photo1}" width="246" height="186" />-->
-                                    <a href="/bearings-${bearings.model}">
+                                    <a href="/bearings-${bearings.url}">
                                      <img alt="${bearings.model}" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/${bearings.photo1}" width="246" height="186" />
                                     </a>
                                 </div>
                                 <div class="body">
                                     <!--<div class="label-discount green">-10 % sale</div>-->
                                     <div class="title">
-                                        <a href="/bearings-${bearings.model}"> ${bearings.model}  </a>
+                                        <a href="/bearings-${bearings.url}"> ${bearings.model}  </a>
                                     </div>
                                     <div class="brand"><spring:message code="bearingsall.type" text="Type" />:  ${bearings.type}</div>
 
@@ -238,11 +238,11 @@
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <!--<a href="add-product-to-customer-basket?id=${vmc.id}&model=${vmc.model}" class="le-button"><spring:message code="vmcs.addtocart" text="add to cart" /></a>-->
+                                        <a href="add-product-to-customer-basket?id=${bearings.id}&model=${bearings.model}" class="le-button"><spring:message code="bearingsIndustrial.addtocart" text="add to cart" /></a>-->
                                     </div>
                                     <div class="wish-compare">
                                         <!--<a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${vmc.id}">add to wishlist</a>-->
-                                        <a class="btn-add-to-compare" href="/compare-light-add?id=${bearings.id}&pagereturn=${currentpagewithpage}"><spring:message code="bearingsall.compare" text="Compare" /></a>
+                                        <a class="btn-add-to-compare" href="/compare-bearings-add?id=${bearings.id}&pagereturn=${currentpagewithpage}"><spring:message code="bearingsall.compare" text="Compare" /></a>
                                     </div>
                                 </div>
                                 
@@ -261,7 +261,7 @@
                 <div class="inner-xs">
                     <div class="page-header">
                         <h2 class="page-title">
-                            <spring:message code="bearings.noMachines" text="There are no machines with such parameters<br/>Please, change the filter parameters."/>
+                            <spring:message code="bearings.noMachines" text="There are no bearings with such parameters<br/>Please, change the filter parameters."/>
                         </h2>
                     </div>
                 </div>
@@ -319,7 +319,7 @@
             <div class="row">
                 <div class="no-margin col-xs-12 col-sm-4 image-holder">
                     <div class="image">
-                        <a href="/bearings-${bearings.model}">
+                        <a href="/bearings-${bearings.url}">
                         <img alt="${bearings.model}" src="../resources/assets/images/blank.gif" data-echo="../resources/assets/images/products/${bearings.photo1}"  width="246" height="186"/>
                         </a>
                     </div>
@@ -328,7 +328,7 @@
                     <div class="body">
                         <div class="label-discount green">-10% sale</div>
                         <div class="title">
-                            <a href="/bearings-${bearings.model}">${bearings.manufacturer} ${bearings.model}</a>
+                            <a href="/bearings-${bearings.url}">${bearings.manufacturer} ${bearings.model}</a>
                         </div>
                             <div class="brand">${product.year}/ location: ${product.machinelocation}
                             <br> L*H*B: ${bearings.size}

@@ -21,6 +21,7 @@ public interface BearingsIndustrialService {
   public void uploadImagesBearings(String path, MultipartFile[] images);
 //    public Wesold getWesold(int id);
     public BearingsIndustrial getBearingsById(String id);
+    public BearingsIndustrial getBearingsByUrl(String url);
     
     public  List<BearingsIndustrial> getListBearingsByIds(String ids);
     public  List<BearingsIndustrial> getListBearingsFromSearch(String word);

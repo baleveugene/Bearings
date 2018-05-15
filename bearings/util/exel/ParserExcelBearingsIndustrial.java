@@ -52,31 +52,29 @@ public class ParserExcelBearingsIndustrial  {
         df.formatCellValue(rowIterator.next().getCell(1)).trim();
         printInFile("readBearingsIndustrial.txt", "1");
         
-        rowIterator.next(); 
-        
-        bearingsIndustrial.setSubType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubType());
-        System.out.println(bearingsIndustrial.getSubType());
+        rowIterator.next();        
         
         bearingsIndustrial.setType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getType());
         System.out.println(bearingsIndustrial.getType());
         
-        
+        bearingsIndustrial.setSubType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubType());
+        System.out.println(bearingsIndustrial.getSubType());
         
         bearingsIndustrial.setModel(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "4 getModel = " + bearingsIndustrial.getModel());             
         System.out.println(bearingsIndustrial.getModel());
         
         bearingsIndustrial.setUrl(getUrl(bearingsIndustrial.getModel())); bearingsIndustrial.setId(getID(bearingsIndustrial.getModel()));
-        printInFile("readLightOffice.txt", "4 setUrl"  );
+        printInFile("readLightOffice.txt", "5 setUrl"  );
         
         bearingsIndustrial.setManufacturer(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readBearingsIndustrial.txt", "5 setManufacturer = " + bearingsIndustrial.getManufacturer());
+         printInFile("readBearingsIndustrial.txt", "6 setManufacturer = " + bearingsIndustrial.getManufacturer());
          System.out.println(bearingsIndustrial.getManufacturer());
          
         bearingsIndustrial.setCountry(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readBearingsIndustrial.txt", "6 setCountry = " + bearingsIndustrial.getCountry());        
+         printInFile("readBearingsIndustrial.txt", "7 setCountry = " + bearingsIndustrial.getCountry());        
         System.out.println(bearingsIndustrial.getCountry());
          
         bearingsIndustrial.setBasicDynamicLoadRating(intFromCell(rowIterator, df)); 
@@ -91,9 +89,10 @@ public class ParserExcelBearingsIndustrial  {
         bearingsIndustrial.setTemperatureWork(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         
         bearingsIndustrial.setGuarantee(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readBearingsIndustrial.txt", "21 setGuarantee = " + bearingsIndustrial.getGuarantee());
+        printInFile("readBearingsIndustrial.txt", "16 setGuarantee = " + bearingsIndustrial.getGuarantee());
 
-        rowIterator.next().getCell(1);
+        rowIterator.next();
+        rowIterator.next();
         
         bearingsIndustrial.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         bearingsIndustrial.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)).trim());

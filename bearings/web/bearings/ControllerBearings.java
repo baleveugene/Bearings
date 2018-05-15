@@ -63,25 +63,23 @@ public class ControllerBearings extends PrintInFile {
         
             return mv;
     }
-    
-    
-/*    
+        
     @RequestMapping(value = "/bearings-{url}", method = RequestMethod.GET)
-    public ModelAndView bearings_all(@PathVariable ("url") String url, HttpSession session) {
+    public ModelAndView bearings_one(@PathVariable ("url") String url, HttpSession session) {
     
         ModelAndView mv = new ModelAndView("bearings/bearings_one");
-        BearingsIndustrial bearingsIndustrial = bearingsIndustrial.getBearingsByUrl(url);
-        mv.addObject("lightOffice", lightOffice);
+        BearingsIndustrial bearingsIndustrial = bearingsIndustrialService.getBearingsByUrl(url);
+        mv.addObject("bearingsIndustrial", bearingsIndustrial);
         
-        mv.addObject("message", new Message("Light " +lightOffice.getType() , lightOffice.getModel())); // it is need for feed back !!!!!!
-        session.setAttribute("search", "light"); // for search
-        session.setAttribute("currentpagewithpage", "/light-" + url);
+        mv.addObject("message", new Message("Bearings " +bearingsIndustrial.getType() , bearingsIndustrial.getModel())); // it is need for feed back !!!!!!
+        session.setAttribute("search", "bearings"); // for search
+        session.setAttribute("currentpagewithpage", "/bearings-" + url);
         return mv;
     }
  
 
 
-    @RequestMapping(value =  "/light/pdf/{url}", method = RequestMethod.GET)
+    @RequestMapping(value =  "/bearings/pdf/{url}", method = RequestMethod.GET)
 public ResponseEntity<byte[]> getPdfSingle(HttpServletRequest request, @PathVariable ("url") String url )throws Exception {
 //    public ResponseEntity<byte[]> getPdfSingle(@RequestParam("productId") String productId,
 //                                               @RequestParam(value = "company", required = false) String company,
@@ -99,8 +97,8 @@ public ResponseEntity<byte[]> getPdfSingle(HttpServletRequest request, @PathVari
 
     public ResponseEntity<byte[]> getPDFOfferSingle(String path, String url, String company, String director, boolean showPrice) throws Exception {
 //        Hmc machine = hmcDAO.getMachine(productId);
-LightOffice light = lighOfficeService.getLightByUrl(url);
-        String pathPdf = LightPdf.createPdfLight(path, light, company, director, showPrice);
+BearingsIndustrial bearings = bearingsIndustrialService.getBearingsByUrl(url);
+        String pathPdf = BearingsPdf.createPdfBearings(path, bearings, company, director, showPrice);
 
         File file = new File(pathPdf);
         byte[] contents = new byte[(int) file.length()];
@@ -108,10 +106,9 @@ LightOffice light = lighOfficeService.getLightByUrl(url);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType("application/pdf"));
-        String filename = "Light-" + light.getModel() + ".pdf";
+        String filename = "Bearings-" + bearings.getModel() + ".pdf";
         headers.setContentDispositionFormData(filename, filename);
         headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
         return new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-    }
-   */ 
+    } 
 }
