@@ -84,7 +84,7 @@
                         <!--</li>--> 
   
                        <li class="breadcrumb-item current">
-                            <a href="#">Bearings-${type}</a>
+                            <a href="#">Bearings</a>
                         </li> 
                     </ul>
                 </li><!-- /.breadcrumb-nav-holder -->
@@ -106,32 +106,33 @@
     <h1><spring:message code="bearingsall.productfilters" text="Product Filters" /></h1>
     <div class="body bordered"> <!-- body -->
         
-        <form:form id="filterForm" action="/bearings" method="GET">
-   
-            <!--  Type  -->  
-            <c:if test="${!empty listBearingsType}" >               
+        <form:form id="filterForm" action="/bearings" method="GET">          
+            
+            <!--  Type  -->
+            <c:if test="${!empty listBearingsType}">
                 <div class="category-filter">
-                            <h2> <spring:message code="bearingsall.type" text="Type" /> </h2>
-                             <!--<hr>--> 
-                             <div id="item-count" class="le-select">
-                                 <select name="type">  
-                                     <option value='' ><spring:message code="bearingsall.type_not_selected" text="Type not selected" /></option> 
-                                          <!--<option disabled>Select axes</option>-->  
-                                          <c:forEach items="${listBearingsType}" var="aa">
-                                              <option value="${aa.type}"
-                                                         <c:if test="${aa.type == type}">selected</c:if>                 
-                                                  > ${aa.type} (${aa.num}) </option>
-                                          </c:forEach>
-                                 </select>
-                            </div>
-                        </div>         
-            </c:if>
+                    <h2><spring:message code="bearingsall.type" text="Type" /></h2>
+                    <ul>
+                        <c:forEach items="${listBearingsType}" var="types">
+                            <li>
+                                           <input class="le-checkbox" 
+                                           <c:forTokens items="${type}" delims=" " var="role">
+                                                 <c:if test="${types.type==role}">checked</c:if> 
+                                            </c:forTokens>
+                                     name="type" type="checkbox" value="${types.type}"/>
+                                
+                                <label>${types.type} (${types.num}) </label>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
           
+            </c:if>
 
                            <!--Amount of axes -->      
                 <c:if test="${!empty listBearingsSize}" >               
                 <div class="category-filter">
-                            <h2> <spring:message code="bearingsall.size" text="Size" /> </h2>
+                            <h2> <spring:message code="bearingsall.size" text="Size_(dxDxh,mm)" /> </h2>
                              <!--<hr>--> 
                              <div id="item-count" class="le-select">
                                  <select name="size">  

@@ -27,7 +27,7 @@ public interface BearingsIndustrialService {
     public  List<BearingsIndustrial> getListBearingsFromSearch(String word);
 //    public List<Wesold> getListWesold();
     public List<BearingsIndustrial> getListBearingsIndustrial();
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String type);
+    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType);
     public void uploadBearingsIndustrial(String path, MultipartFile[] file);
           
     public List<BearingsIndustrialSize> getListBearingsIndustrialSize();

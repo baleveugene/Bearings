@@ -20,7 +20,7 @@ public interface BearingsIndustrialDao {
 //    public Video getVideo(String url);
 //    
     public List<BearingsIndustrial> getListBearingsIndustrial();
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String type);
+    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType);
     public BearingsIndustrial getBearingsById(String id);
     public BearingsIndustrial getBearingsByUrl(String url);
 //    public List<Video> getListVideo(String section);

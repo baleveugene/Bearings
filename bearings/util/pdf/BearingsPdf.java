@@ -171,24 +171,30 @@ public class BearingsPdf {
             itemTable.addCell(itemCells[i]);
         }
         
-        itemCells[0] = new PdfPCell(new Paragraph("subType", font));
+        itemCells[0] = new PdfPCell(new Paragraph("Subtype", font));
         itemCells[1] = new PdfPCell(new Paragraph(bearings.getSubType(), font));
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {          
+            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
+            itemTable.addCell(itemCells[i]);
+        }
+        
+        itemCells[0] = new PdfPCell(new Paragraph("Manufacturer", font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getManufacturer(), font));
+        for (int i = 0; i < 2; i++) {          
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
         
-//        itemCells[0] = new PdfPCell(new Paragraph("Country", font));
-//        itemCells[1] = new PdfPCell(new Paragraph(light.getCountry(), font));
-//          for (int i = 0; i < 2; i++) {
-//            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-//            itemTable.addCell(itemCells[i]);
-//        }
-        
-//        &
-/*        itemCells[0] = new PdfPCell(new Paragraph("Power, Watt", font));
-        itemCells[1] = new PdfPCell(new Paragraph(""+light.getPower(), font));
+        itemCells[0] = new PdfPCell(new Paragraph("Country", font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getCountry(), font));
+          for (int i = 0; i < 2; i++) {
+            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
+            itemTable.addCell(itemCells[i]);
+        }
+               
+        itemCells[0] = new PdfPCell(new Paragraph("Basic Dynamic Load Rating, kN", font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getBasicDynamicLoadRating()), font));
             for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
@@ -196,105 +202,53 @@ public class BearingsPdf {
         }
             
             
-        itemCells[0] = new PdfPCell(new Paragraph("luminous Flux, Lm", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getLuminousFlux()), font));  
-            for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
+        itemCells[0] = new PdfPCell(new Paragraph("Basic Static Load Rating, kN", font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getBasicStaticLoadRating()), font));  
+            for (int i = 0; i < 2; i++) {           
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
     
-            itemCells[0] = new PdfPCell(new Paragraph("Diffuser type", font));
-        itemCells[1] = new PdfPCell(new Paragraph(light.getDiffuser(), font));
-        
-//        for (int i = 0; i < 4; i++) {
+        itemCells[0] = new PdfPCell(new Paragraph("Fatique Load Limit, kN",  font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getFatiqueLoadLimit()), font));   
         for (int i = 0; i < 2; i++) {
+            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
        
-
-
-
-            if (light.getLuminousFluxEmergency()!=0){
-        itemCells[0] = new PdfPCell(new Paragraph("luminous Flux Emergency, Lm", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getLuminousFluxEmergency()), font));
-        for (int i = 0; i < 2; i++) {
+        itemCells[0] = new PdfPCell(new Paragraph("Reference Speed, r/min", font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getReferenceSpeed()), font));  
+            for (int i = 0; i < 2; i++) {        
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
-            }
 
-        itemCells[0] = new PdfPCell(new Paragraph("temperature Glow, C", font));
-        itemCells[1] = new PdfPCell(new Paragraph(light.getTemperatureGlow(), font));
-                
+        itemCells[0] = new PdfPCell(new Paragraph("Limiting Speed, r/min", font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getLimitingSpeed()), font));  
             for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
-          
+   
         itemCells[0] = new PdfPCell(new Paragraph("Size", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getSize()), font));
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-
-        itemCells[0] = new PdfPCell(new Paragraph("coefficient Pulsation", font));
-        itemCells[1] = new PdfPCell(new Paragraph(light.getCoefficientPulsation(), font));
-                
-            for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-          
-        itemCells[0] = new PdfPCell(new Paragraph("driver power coefficient", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getCoefficientPower()), font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getSize()), font));
         for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
-        }
-
-        itemCells[0] = new PdfPCell(new Paragraph("type of LIDC", font));
-        itemCells[1] = new PdfPCell(new Paragraph(light.getTypeLidc(), font));
-                
-            for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-
-          
-        itemCells[0] = new PdfPCell(new Paragraph("index Color, Ra", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getIndexColor()), font));
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-
-        itemCells[0] = new PdfPCell(new Paragraph("Enclosure protection , IP", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getSecurity()), font));
-                
-            for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
+        }      
           
         itemCells[0] = new PdfPCell(new Paragraph("Weight, kg", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getWeight()), font));
-        
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getWeight()), font));      
+        for (int i = 0; i < 2; i++) {           
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
         
         itemCells[0] = new PdfPCell(new Paragraph("Work temperature", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getTemperatureWork()), font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getTemperatureWork()), font));
         for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
@@ -302,33 +256,12 @@ public class BearingsPdf {
         }
         
         itemCells[0] = new PdfPCell(new Paragraph("Guarantee, years", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getGuarantee()), font));
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getGuarantee()), font));
+        for (int i = 0; i < 2; i++) {           
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
-        
-        if(!light.getDimmingFunction().equals(""))
-        itemCells[0] = new PdfPCell(new Paragraph("dimming Function", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getDimmingFunction()), font));
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-        
-        if(!light.getMountingType().equals(""))
-        itemCells[0] = new PdfPCell(new Paragraph("mounting Type", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(light.getMountingType()), font));
-        for (int i = 0; i < 2; i++) {
-            itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
-            itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
-            itemTable.addCell(itemCells[i]);
-        }
-
-
-        
+           
 //        itemCells[0] = new PdfPCell(new Paragraph("Position/reposition precision, mm", font));
 //        itemCells[1] = new PdfPCell(new Paragraph(machine.getPositionRepositionPrecision(), font));
 //        itemCells[0] = new PdfPCell(new Paragraph("Machine launching, h", font));
@@ -371,7 +304,7 @@ public class BearingsPdf {
         
         
                 try {
-            img = Image.getInstance(path + "/assets/images/products/" + light.getPhoto3());
+            img = Image.getInstance(path + "/assets/images/products/" + bearings.getPhoto3());
             img.setScaleToFitHeight(false);
             itemCells[0] = new PdfPCell(img, true);
         } catch (Exception e) {
@@ -384,11 +317,7 @@ public class BearingsPdf {
 //            itemCells[1] = new PdfPCell(img, true);
 //        } catch (Exception e) {
 //            itemCells[1] = new PdfPCell(new Paragraph(""));
-//        }
-        
-        
-      */  
-        
+//        }                         
         return itemTable;
     }
 
@@ -402,7 +331,7 @@ public class BearingsPdf {
         Chunk chunk = new Chunk();
 //        chunk = new Chunk("VMC & HMC",font);
 //        paragraph.add(chunk);
-        chunk = new Chunk("\nIndustrial Lighting: ",fontSmall);
+        chunk = new Chunk("\nIndustrial Bearings: ",fontSmall);
         paragraph.add(chunk);
 //        chunk = new Chunk("+1 203 556-50-69",fontSmallGreen);
 //        paragraph.add(chunk);
@@ -411,7 +340,7 @@ public class BearingsPdf {
         chunk = new Chunk("\nPhone: +375 (29) 255-88-88",fontSmall);
         paragraph.add(chunk);
         
-        chunk = new Chunk("\nwww.vmccnc.com/light",fontSmallGreen);
+        chunk = new Chunk("\nwww.vmccnc.com/bearings",fontSmallGreen);
         paragraph.add(chunk);
         
         
@@ -419,10 +348,10 @@ public class BearingsPdf {
         return paragraph;
     }
 
-    public static String createPdfBearings(String path, BearingsIndustrial light, String company, String director, boolean showPrice) throws Exception {
+    public static String createPdfBearings(String path, BearingsIndustrial bearings, String company, String director, boolean showPrice) throws Exception {
      
-        model = light.getModel();
-        type = light.getType();
+        model = bearings.getModel();
+        type = bearings.getType();
 //        year = light.getYear();
         
         Document document = new Document(PageSize.A4,50,50,50,50);
@@ -432,7 +361,7 @@ public class BearingsPdf {
 
         document.add(getHeaderTable(path));
         setForWhoData(document,company,director);
-        document.add(getItemTable(path, light, showPrice));
+        document.add(getItemTable(path, bearings, showPrice));
         document.add(getFooterParagraph());
 
         document.close();

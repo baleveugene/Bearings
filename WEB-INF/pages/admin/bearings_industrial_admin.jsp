@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-         pageEncoding="utf8" %>
+<%@ page language="java" contentType="text/html;charset=utf-8"
+         pageEncoding="utf-8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,45 +12,45 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <title>Admin. Bearings catalog</title>
-    <link href="../resources/assets/css/default.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="../resources/assets/css/gray.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/default.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/gray.css" rel="stylesheet" type="text/css" media="screen"/>
     <!-- color skin: blue / red / green / dark -->
-    <link href="../resources/assets/css/datePicker.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="../resources/assets/css/wysiwyg.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="../resources/assets/css/fancybox-1.3.1.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="../resources/assets/css/visualize.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/datePicker.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/wysiwyg.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/fancybox-1.3.1.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="../resources/public/css/visualize.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="../resources/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../resources/assets/css/bootstrap.min.css"></link>
     <!-- Icons/Glyphs -->
-    <link rel="stylesheet" href="../resources/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="../resources/assets/css/font-awesome.min.css"></link>
 
-    <script type="text/javascript" src="../resources/assets/js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="../resources/assets/js/jquery.dimensions.min.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.dimensions.min.js"></script>
 
     <!-- // Tabs // -->
-    <script type="text/javascript" src="../resources/assets/js/ui.core.js"></script>
-    <script type="text/javascript" src="../resources/assets/js/jquery.ui.tabs.min.js"></script>
+    <script type="text/javascript" src="../resources/public/js/ui.core.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.ui.tabs.min.js"></script>
 
     <!-- // Table drag and drop rows // -->
-    <script type="text/javascript" src="../resources/assets/js/tablednd.js"></script>
+    <script type="text/javascript" src="../resources/public/js/tablednd.js"></script>
 
     <!-- // Date Picker // -->
-    <script type="text/javascript" src="../resources/assets/js/date.js"></script>
+    <script type="text/javascript" src="../resources/public/js/date.js"></script>
     <!--[if IE]><script type="text/javascript" src="public/js/jquery.bgiframe.js"></script><[endif]-->
-    <script type="text/javascript" src="../resources/assets/js/jquery.datePicker.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.datePicker.js"></script>
 
     <!-- // Wysiwyg // -->
-    <script type="text/javascript" src="../resources/assets/js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.wysiwyg.js"></script>
 
     <!-- // Graphs // -->
-    <script type="text/javascript" src="../resources/assets/js/excanvas.js"></script>
-    <script type="text/javascript" src="../resources/assets/js/jquery.visualize.js"></script>
+    <script type="text/javascript" src="../resources/public/js/excanvas.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.visualize.js"></script>
 
     <!-- // File upload // -->
-    <script type="text/javascript" src="../resources/assets/js/jquery.filestyle.js"></script>
+    <script type="text/javascript" src="../resources/public/js/jquery.filestyle.js"></script>
 
-    <script type="text/javascript" src="../resources/assets/js/init.js"></script>
+    <script type="text/javascript" src="../resources/public/js/init.js"></script>
 
 </head>
 <body>
@@ -96,7 +96,7 @@
 <!-- box -->
 <div class="tabs box">
 <ul class="bookmarks">
-    <li><a href="#show_bearings">bearings for manufacturer</a></li>
+    <li><a href="#show_lathes">bearings for manufacturer</a></li>
     <li><a href="#upload">Upload bearings from file</a></li>
     <li><a href="#filters">Delete all bearings for Manufacturer</a></li>
 </ul>
@@ -126,14 +126,11 @@
             
               <td><a href="/bearings-${bearings.url}">${bearings.model}</a></td>            
               <td>${bearings.manufacturer}</td>                             
-              <td>${bearings.size} </td>
-<!--              <td> <img alt="${lathe.model}" src="../resources/assets/images/products/${lathe.photo1}" width="50" height="50" /></td>
-              <td> <img alt="${lathe.model}" src="../resources/assets/images/products/${lathe.photo2}" width="50" height="50" /></td>
-              <td> <img alt="${lathe.model}" src="../resources/assets/images/products/${lathe.photo3}" width="50" height="50" /></td>-->
+              <td>${bearings.size} </td>             
         
               <td class="action">
                 <a href="bearings_for_manufacturer/${bearings.manufacturer}/${bearings.url}/delete" class="ico ico-delete">Delete</a>
-                <!--<a href="" class="ico ico-edit">Edit</a>-->
+                <a href="" class="ico ico-edit">Edit</a>
               </td>
             </tr>
               </c:forEach>
@@ -162,7 +159,7 @@
             - <a href="../resources/example.xlsx" target="_blank">example</a> (download)
             <br><br>
 
-            <div class="btn-submit"><!-- Submit form -->
+            <div class="btn-submit">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 <input type="submit" value="Add / update" class="button"/>
             </div>
@@ -179,29 +176,20 @@
             <h3 style="color: red; margin-top:10px">It will have deleted all Bearings for manufacturers.</h3>
             <!--As a result, you would see <u>relevant</u> filter parameters.<br><br>-->
 
-            <div class="btn-submit"> Submit form 
+            <div class="btn-submit">
                 <input type="submit" value="Delete all Bearings for Manufacturer" class="button"/>
             </div>
         </fieldset>
 
     </form:form>
 </div>
-
-    
-    
-         <a href="/admin/bearings/renewFiltersBearingsIndustrial"> renew Filters Bearings </a> 
-    
+       <a href="/admin/bearings/renewFiltersBearingsIndustrial"> renew Filters Bearings </a>   
 </div>
 </div>
-
-
-
-
-
 </div>
 <!-- /#content -->
- <%@include file="in_sidebar.jsp" %>
-<%@include file="in_footer.jsp" %>
+ <%@include file="/WEB-INF/pages/in_admin/in_sidebar_bearings.jsp" %>
+<%@include file="/WEB-INF/pages/in_admin/in_footer.jsp" %>
 
 </div>
 <!-- /#main -->

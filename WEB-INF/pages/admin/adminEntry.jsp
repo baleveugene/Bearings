@@ -12,8 +12,8 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Great admin</title>
-    <link href="../resources/admin/css/login.css" rel="stylesheet" type="text/css" />
-    <link href="../resources/admin/css/login-gray.css" rel="stylesheet" type="text/css" />  <!-- color skin: blue / red / green / dark -->
+    <link href="../resources/public/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="../resources/public/css/login-gray.css" rel="stylesheet" type="text/css" />  <!-- color skin: blue / red / green / dark -->
 </head>
 <body>
 <div id="main">

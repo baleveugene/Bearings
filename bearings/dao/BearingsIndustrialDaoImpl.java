@@ -67,13 +67,15 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     
     @Override @SuppressWarnings("unchecked")
     public List<BearingsIndustrialSize> getListBearingsIndustrialSize(){ 
-       return (List<BearingsIndustrialSize> )sessionFactory.getCurrentSession().createCriteria(BearingsIndustrialSize.class)
-                                                    .addOrder(Order.desc("size")) .list();  
+       return (List<BearingsIndustrialSize>)sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialSize.class)
+               .list();  
     }
         @Override
     @SuppressWarnings("unchecked")
     public List<BearingsIndustrialType> getListBearingsIndustrialType(){ 
-       return (List<BearingsIndustrialType> )sessionFactory.getCurrentSession().createCriteria(BearingsIndustrialType.class)
+       return (List<BearingsIndustrialType> )sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialType.class)
                .addOrder(Order.desc("type"))
                .list();
     }
@@ -88,11 +90,20 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     
     @Override
     @SuppressWarnings("unchecked")
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String type) {
+    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType) {
         Criteria crit = sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class);
-    if (size != null && !size.equals(""))  crit.add(Restrictions.eq("size", size));
-    if (type != null && !type.equals(""))  crit.add(Restrictions.eq("type", type));
-         return crit.list();
+        if (size != null && !size.equals("")){            
+            String[] arrSizeFromTo = size.split("< d <= ");           
+            if(arrSizeFromTo.length>1){
+                crit.add(Restrictions.between("size", arrSizeFromTo[0], arrSizeFromTo[1]));
+            } else{            
+                crit.add(Restrictions.sqlRestriction("size >"+size.substring(0, size.indexOf("<"))));
+            }                    
+        }
+        if (arrType != null && !arrType[0].equals("")){   
+            crit.add(Restrictions.in("type", arrType));
+        }
+        return crit.list();     
     }
              
     @Override

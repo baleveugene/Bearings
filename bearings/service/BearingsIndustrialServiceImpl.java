@@ -56,17 +56,17 @@ public class BearingsIndustrialServiceImpl implements BearingsIndustrialService 
     }
     
     @Override @Transactional
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String type) {
-    return  bearingsIndustrialDao.getListBearingsIndustrial(size, type);
+    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType) {
+    return  bearingsIndustrialDao.getListBearingsIndustrial(size, arrType);
     }   
    
-        @Transactional
+    @Override    @Transactional
     public String[] listImage(String path) {
         return ImageUtilBearings.getListImage(path);
     }
     
     
-        @Transactional
+    @Override    @Transactional
     public void uploadImagesBearings(String path, MultipartFile[] images) {
         for (int i = 0; i < images.length; i++) {
             try {
@@ -103,6 +103,6 @@ public class BearingsIndustrialServiceImpl implements BearingsIndustrialService 
    
     @Override @Transactional
     public List<BearingsIndustrial> getListBearingsFromSearch(String word) {
-      return bearingsIndustrialDao.getListBearingsFromSearch( word);
+      return bearingsIndustrialDao.getListBearingsFromSearch(word);
     }      
 }

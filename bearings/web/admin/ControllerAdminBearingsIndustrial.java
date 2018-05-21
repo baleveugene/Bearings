@@ -57,7 +57,7 @@ public class ControllerAdminBearingsIndustrial {
      ///       --------     Add pictures   ----------
       @RequestMapping(value = "/bearings/photos", method = RequestMethod.GET)
     public ModelAndView galleryBearings(HttpServletRequest request, Map<String,Object> map){
-        ModelAndView mv = new ModelAndView("admin/gallerybearings");
+        ModelAndView mv = new ModelAndView("admin/galleryBearings");
         String path = request.getServletContext().getRealPath("") + "/resources/assets/images/products/bearings/industrial";
         mv.addObject("imageListBearings", bearingsIndustrialService.listImage(path));
         return mv;
@@ -65,10 +65,9 @@ public class ControllerAdminBearingsIndustrial {
     
     
     @RequestMapping(value = "/bearings/photos/upload", method = RequestMethod.POST)
-    public String adminUploadImagesBearings(@RequestParam("imageBearings") MultipartFile[] images, HttpServletRequest request){
+    public String adminUploadImagesBearings(@RequestParam("imageLathe") MultipartFile[] images, HttpServletRequest request){
         if (images != null && images.length > 0) {
             String path = request.getServletContext().getRealPath("") + "/resources/assets/images/products/bearings/industrial";
-//            lighOfficeService.uploadImagesLathe(path, images);
             bearingsIndustrialService.uploadImagesBearings(path, images);
         }
         return "redirect:/admin/bearings/photos";

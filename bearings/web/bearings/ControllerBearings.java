@@ -31,10 +31,10 @@ public class ControllerBearings extends PrintInFile {
     @Autowired  BearingsIndustrialService bearingsIndustrialService;
  
     
-        @RequestMapping(value="/bearings", method = RequestMethod.GET)
+    @RequestMapping(value="/bearings", method = RequestMethod.GET)
     public ModelAndView bearings_all(  
                                     @RequestParam(value = "size", required = false) String size,
-                                    @RequestParam(value = "type", required = false) String type,
+                                    @RequestParam(value = "type", required = false) String[] type,
                                     HttpSession session ) {
         
         ModelAndView mv = new ModelAndView("bearings/bearings_all"); 
@@ -57,7 +57,7 @@ public class ControllerBearings extends PrintInFile {
           String str = "" ;
           
           if (size!=null && !size.equals("")) str += "&size="+size;
-          if (type!=null && !type.equals("")) str += "&type="+type;
+          if (type!=null && !type.equals("")) str += "&type="+type[0];
             session.setAttribute("currentpagewithpage", "/bearings?"+str);
           
         
