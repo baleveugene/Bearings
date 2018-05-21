@@ -9,10 +9,10 @@
        
 
         
-        <li><a href="#">Lighting</a>
+        <li><a href="#">Bearings</a>
                 <ul class="submenu">
-                    <li><a href="/admin/light">Add light</a></li>
-                    <li><a href="/admin/light/photos">Add photo light</a></li>
+                    <li><a href="/admin/bearings">Add bearings</a></li>
+                    <li><a href="/admin/bearings/photos">Add photo bearings</a></li>
                 </ul>
         </li>   
         

@@ -1,5 +1,5 @@
 
-<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
@@ -121,7 +121,7 @@
                 <!--<a data-rel="prettyphoto" href="../resources/assets/images/products/${vmc.photo1}">-->
                 <a data-rel="prettyphoto" href="../resources/assets/images/products/${lightOffice.photo1}">
                     <img class="img-responsive" alt="${lightOffice.model}" 
-                         src="${lightOffice.photo1}" 
+                         src="../resources/assets/images/products/${lightOffice.photo1}" 
                          data-echo="../resources/assets/images/products/${lightOffice.photo1}" />
                          <!--src="../resources/assets/images/products/${vmc.photo1}"--> 
                          <!--data-echo="../resources/assets/images/products/${vmc.photo1}" />-->
@@ -356,10 +356,6 @@
                 
     </c:choose>          
                     
-                    
-  
-                    
-
                 </div> 
           
 

@@ -3,6 +3,6 @@
 <br>
 
 <div id="footer">
-    <p>Â© HMC & CNC | 2016 | <a href="#">Top</a></p>
+    <p>© HMC & CNC | 2016 | <a href="#">Top</a></p>
 </div>
 <!-- #footer -->
