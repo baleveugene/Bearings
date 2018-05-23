@@ -51,7 +51,7 @@ public class BearingsIndustrialOuterDiameter implements Serializable {
         return D;
     }
 
-    public void setType(Integer D) {
+    public void setOuterDiameter(Integer D) {
         this.D = D;
     }
 

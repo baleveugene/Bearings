@@ -52,15 +52,18 @@ public class ParserExcelBearingsIndustrial  {
         df.formatCellValue(rowIterator.next().getCell(1)).trim();
         printInFile("readBearingsIndustrial.txt", "1");
         
-        rowIterator.next();        
+        Row curentRow = rowIterator.next();                      
+        bearingsIndustrial.setTypeEn(df.formatCellValue(curentRow.getCell(1)).trim());
+        bearingsIndustrial.setTypeRu(df.formatCellValue(curentRow.getCell(2)).trim());
+        printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getTypeEn());
+        System.out.println(bearingsIndustrial.getTypeEn());
+        System.out.println(bearingsIndustrial.getTypeRu());
         
-        bearingsIndustrial.setType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readBearingsIndustrial.txt", "2 setType = " + bearingsIndustrial.getType());
-        System.out.println(bearingsIndustrial.getType());
-        
-        bearingsIndustrial.setSubType(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-        printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubType());
-        System.out.println(bearingsIndustrial.getSubType());
+        curentRow = rowIterator.next();
+        bearingsIndustrial.setSubTypeEn(df.formatCellValue(curentRow.getCell(1)).trim()); 
+        bearingsIndustrial.setSubTypeRu(df.formatCellValue(curentRow.getCell(2)).trim());
+        printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubTypeEn());
+        System.out.println(bearingsIndustrial.getSubTypeEn());
         
         bearingsIndustrial.setModel(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "4 getModel = " + bearingsIndustrial.getModel());             
@@ -69,21 +72,26 @@ public class ParserExcelBearingsIndustrial  {
         bearingsIndustrial.setUrl(getUrl(bearingsIndustrial.getModel())); bearingsIndustrial.setId(getID(bearingsIndustrial.getModel()));
         printInFile("readLightOffice.txt", "5 setUrl"  );
         
-        bearingsIndustrial.setManufacturer(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readBearingsIndustrial.txt", "6 setManufacturer = " + bearingsIndustrial.getManufacturer());
-         System.out.println(bearingsIndustrial.getManufacturer());
+        curentRow = rowIterator.next();
+        bearingsIndustrial.setManufacturerEn(df.formatCellValue(curentRow.getCell(1)).trim());
+        bearingsIndustrial.setManufacturerRu(df.formatCellValue(curentRow.getCell(2)).trim());
+        printInFile("readBearingsIndustrial.txt", "6 setManufacturer = " + bearingsIndustrial.getManufacturerEn());
+        System.out.println(bearingsIndustrial.getManufacturerEn());
          
-        bearingsIndustrial.setCountry(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
-         printInFile("readBearingsIndustrial.txt", "7 setCountry = " + bearingsIndustrial.getCountry());        
-        System.out.println(bearingsIndustrial.getCountry());
+        curentRow = rowIterator.next();
+        bearingsIndustrial.setCountryEn(df.formatCellValue(curentRow.getCell(1)).trim());
+        bearingsIndustrial.setCountryRu(df.formatCellValue(curentRow.getCell(1)).trim());
+        printInFile("readBearingsIndustrial.txt", "7 setCountry = " + bearingsIndustrial.getCountryEn());        
+        System.out.println(bearingsIndustrial.getCountryEn());
          
         bearingsIndustrial.setBasicDynamicLoadRating(intFromCell(rowIterator, df)); 
         bearingsIndustrial.setBasicStaticLoadRating(intFromCell(rowIterator, df));
         bearingsIndustrial.setFatiqueLoadLimit(intFromCell(rowIterator, df));
         bearingsIndustrial.setReferenceSpeed(intFromCell(rowIterator, df));
         bearingsIndustrial.setLimitingSpeed(intFromCell(rowIterator, df));
-       
-        bearingsIndustrial.setSize(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
+        bearingsIndustrial.setInnerDiameter(intFromCell(rowIterator, df));
+        bearingsIndustrial.setOuterDiameter(intFromCell(rowIterator, df));
+        bearingsIndustrial.setWidth(intFromCell(rowIterator, df));          
           
         bearingsIndustrial.setWeight(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         bearingsIndustrial.setTemperatureWork(df.formatCellValue(rowIterator.next().getCell(1)).trim());
@@ -91,8 +99,7 @@ public class ParserExcelBearingsIndustrial  {
         bearingsIndustrial.setGuarantee(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "16 setGuarantee = " + bearingsIndustrial.getGuarantee());
 
-        rowIterator.next();
-        rowIterator.next();
+        rowIterator.next();     
         
         bearingsIndustrial.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         bearingsIndustrial.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)).trim());
@@ -100,8 +107,9 @@ public class ParserExcelBearingsIndustrial  {
         bearingsIndustrial.setPhoto4(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         bearingsIndustrial.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)).trim()); */
 
-        
-        bearingsIndustrial.setDescriptionEn(df.formatCellValue(rowIterator.next().getCell(1)).trim());
+        curentRow = rowIterator.next();
+        bearingsIndustrial.setDescriptionEn(df.formatCellValue(curentRow.getCell(1)).trim());
+        bearingsIndustrial.setDescriptionRu(df.formatCellValue(curentRow.getCell(2)).trim());
         bearingsIndustrial.setVideo1(df.formatCellValue(rowIterator.next().getCell(1)).trim());
         
         fis.close();

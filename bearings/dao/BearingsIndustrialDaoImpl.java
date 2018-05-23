@@ -6,8 +6,13 @@
 package com.springapp.bearings.dao;
 
 import com.springapp.bearings.domain.BearingsIndustrial;
-import com.springapp.bearings.domain.BearingsIndustrialSize;
+import com.springapp.bearings.domain.BearingsIndustrialCountry;
+import com.springapp.bearings.domain.BearingsIndustrialInnerDiameter;
+import com.springapp.bearings.domain.BearingsIndustrialOuterDiameter;
+import com.springapp.bearings.domain.BearingsIndustrialWidth;
+import com.springapp.bearings.domain.BearingsIndustrialManufacturer;
 import com.springapp.bearings.domain.BearingsIndustrialType;
+import com.springapp.bearings.domain.BearingsIndustrialSubType;
 
 import com.springapp.mvc.util.PrintInFile;
 
@@ -66,17 +71,55 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     }    
     
     @Override @SuppressWarnings("unchecked")
-    public List<BearingsIndustrialSize> getListBearingsIndustrialSize(){ 
-       return (List<BearingsIndustrialSize>)sessionFactory.getCurrentSession()
-               .createCriteria(BearingsIndustrialSize.class)
+    public List<BearingsIndustrialInnerDiameter> getListBearingsIndustrialInnerDiameter(){ 
+       return (List<BearingsIndustrialInnerDiameter>)sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialInnerDiameter.class)
                .list();  
     }
-        @Override
-    @SuppressWarnings("unchecked")
+    
+    @Override @SuppressWarnings("unchecked")
+    public List<BearingsIndustrialOuterDiameter> getListBearingsIndustrialOuterDiameter(){ 
+       return (List<BearingsIndustrialOuterDiameter>)sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialOuterDiameter.class)
+               .list();  
+    }
+    
+    @Override @SuppressWarnings("unchecked")
+    public List<BearingsIndustrialWidth> getListBearingsIndustrialWidth(){ 
+       return (List<BearingsIndustrialWidth>)sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialWidth.class)
+               .list();  
+    }
+    
+    @Override @SuppressWarnings("unchecked")
     public List<BearingsIndustrialType> getListBearingsIndustrialType(){ 
        return (List<BearingsIndustrialType> )sessionFactory.getCurrentSession()
                .createCriteria(BearingsIndustrialType.class)
                .addOrder(Order.desc("type"))
+               .list();
+    }
+    
+    @Override @SuppressWarnings("unchecked")
+    public List<BearingsIndustrialSubType> getListBearingsIndustrialSubType(){ 
+       return (List<BearingsIndustrialSubType> )sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialSubType.class)
+               .addOrder(Order.desc("subtype"))
+               .list();
+    }
+    
+    @Override @SuppressWarnings("unchecked")
+    public List<BearingsIndustrialManufacturer> getListBearingsIndustrialManufacturer(){ 
+       return (List<BearingsIndustrialManufacturer> )sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialManufacturer.class)
+               .addOrder(Order.desc("manufacturer"))
+               .list();
+    }
+    
+    @Override @SuppressWarnings("unchecked")
+    public List<BearingsIndustrialCountry> getListBearingsIndustrialCountry(){ 
+       return (List<BearingsIndustrialCountry> )sessionFactory.getCurrentSession()
+               .createCriteria(BearingsIndustrialCountry.class)
+               .addOrder(Order.desc("country"))
                .list();
     }
          
@@ -90,18 +133,45 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     
     @Override
     @SuppressWarnings("unchecked")
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType) {
+    public List<BearingsIndustrial> getListBearingsIndustrial(
+            String innerDiameter, String outerDiameter, String width, 
+            String[] type, String[] subtype, String manufacturer, String country) {
         Criteria crit = sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class);
-        if (size != null && !size.equals("")){            
-            String[] arrSizeFromTo = size.split("< d <= ");           
-            if(arrSizeFromTo.length>1){
-                crit.add(Restrictions.between("size", arrSizeFromTo[0], arrSizeFromTo[1]));
+        if (innerDiameter != null && !innerDiameter.equals("")){            
+            String[] arrInnerDFromTo = innerDiameter.split("< d <= ");           
+            if(arrInnerDFromTo.length>1){
+                crit.add(Restrictions.between("inner_diameter", arrInnerDFromTo[0], arrInnerDFromTo[1]));
             } else{            
-                crit.add(Restrictions.sqlRestriction("size >"+size.substring(0, size.indexOf("<"))));
+                crit.add(Restrictions.sqlRestriction("inner_diameter >"+innerDiameter.substring(0, innerDiameter.indexOf("<"))));
             }                    
         }
-        if (arrType != null && !arrType[0].equals("")){   
-            crit.add(Restrictions.in("type", arrType));
+        if (outerDiameter != null && !outerDiameter.equals("")){            
+            String[] arrOuterDFromTo = outerDiameter.split("< D <= ");           
+            if(arrOuterDFromTo.length>1){
+                crit.add(Restrictions.between("outer_diameter", arrOuterDFromTo[0], arrOuterDFromTo[1]));
+            } else{            
+                crit.add(Restrictions.sqlRestriction("outer_diameter >"+outerDiameter.substring(0, outerDiameter.indexOf("<"))));
+            }                    
+        }
+        if (width != null && !width.equals("")){            
+            String[] arrWidthFromTo = width.split("< B <= ");           
+            if(arrWidthFromTo.length>1){
+                crit.add(Restrictions.between("width", arrWidthFromTo[0], arrWidthFromTo[1]));
+            } else{            
+                crit.add(Restrictions.sqlRestriction("width >"+width.substring(0, width.indexOf("<"))));
+            }                    
+        }
+        if (type != null && !type[0].equals("")){   
+            crit.add(Restrictions.in("type", type));
+        }
+        if (subtype != null && !subtype[0].equals("")){   
+            crit.add(Restrictions.in("subtype", subtype));
+        }
+        if (manufacturer != null && !manufacturer.equals("")){   
+            crit.add(Restrictions.eq("manufacturer", manufacturer));
+        }
+        if (country != null && !country.equals("")){   
+            crit.add(Restrictions.eq("country", country));
         }
         return crit.list();     
     }
@@ -109,7 +179,7 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     @Override
     @SuppressWarnings("unchecked")
     public void renewBearingsIndustrialSize() {
-        renewBearingsFilter(BearingsIndustrialSize.class.getSimpleName(),"industrial", "size");
+        renewBearingsFilter(BearingsIndustrialSubType.class.getSimpleName(),"industrial", "subtype");
     }
 
     @Override
@@ -151,9 +221,9 @@ else  list = session.createQuery("select M." + checkBoxName + " from BearingsInd
             set.add(val);
         }
            
-        if(className.equals(BearingsIndustrialSize.class.getSimpleName())) {
+        if(className.equals(BearingsIndustrialInnerDiameter.class.getSimpleName())) {
             for (String s : set) {
-                session.save(getBearingsIndustrialSize(s, Collections.frequency(list, s)));
+                session.save(getBearingsIndustrialInnerDiameter(s, Collections.frequency(list, s)));
             }
         }
         else if(className.equals(BearingsIndustrialType.class.getSimpleName())){
@@ -163,11 +233,23 @@ else  list = session.createQuery("select M." + checkBoxName + " from BearingsInd
         }          
     }       
     
-    private BearingsIndustrialSize getBearingsIndustrialSize(String val, int num) {
-        BearingsIndustrialSize bearingsIndustrialSize = new BearingsIndustrialSize();
-        bearingsIndustrialSize.setSize(val);
-        bearingsIndustrialSize.setNum(num);
-        return bearingsIndustrialSize;
+    private BearingsIndustrialInnerDiameter getBearingsIndustrialInnerDiameter(String val, int num) {
+        BearingsIndustrialInnerDiameter bearingsIndustrialInnerDiameter = new BearingsIndustrialInnerDiameter();
+        bearingsIndustrialInnerDiameter.setInnerDiameter(Integer.valueOf(val));
+        bearingsIndustrialInnerDiameter.setNum(num);
+        return bearingsIndustrialInnerDiameter;
+    }
+    private BearingsIndustrialOuterDiameter getBearingsIndustrialOuterDiameter(String val, int num) {
+        BearingsIndustrialOuterDiameter bearingsIndustrialOuterDiameter = new BearingsIndustrialOuterDiameter();
+        bearingsIndustrialOuterDiameter.setOuterDiameter(Integer.valueOf(val));
+        bearingsIndustrialOuterDiameter.setNum(num);
+        return bearingsIndustrialOuterDiameter;
+    }
+    private BearingsIndustrialWidth getBearingsIndustrialWidth(String val, int num) {
+        BearingsIndustrialWidth bearingsIndustrialWidth = new BearingsIndustrialWidth();
+        bearingsIndustrialWidth.setWidth(Integer.valueOf(val));
+        bearingsIndustrialWidth.setNum(num);
+        return bearingsIndustrialWidth;
     }
     private BearingsIndustrialType getBearingsIndustrialType(String val, int num) {
         BearingsIndustrialType bearingsIndustrialType = new BearingsIndustrialType();

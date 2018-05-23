@@ -164,7 +164,7 @@ public class BearingsPdf {
         }
 
         itemCells[0] = new PdfPCell(new Paragraph("Type", font));
-        itemCells[1] = new PdfPCell(new Paragraph(bearings.getType(), font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getTypeEn(), font));
         for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
@@ -172,14 +172,14 @@ public class BearingsPdf {
         }
         
         itemCells[0] = new PdfPCell(new Paragraph("Subtype", font));
-        itemCells[1] = new PdfPCell(new Paragraph(bearings.getSubType(), font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getSubTypeEn(), font));
         for (int i = 0; i < 2; i++) {          
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
         }
         
         itemCells[0] = new PdfPCell(new Paragraph("Manufacturer", font));
-        itemCells[1] = new PdfPCell(new Paragraph(bearings.getManufacturer(), font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getManufacturerEn(), font));
         for (int i = 0; i < 2; i++) {          
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
@@ -187,7 +187,7 @@ public class BearingsPdf {
         }
         
         itemCells[0] = new PdfPCell(new Paragraph("Country", font));
-        itemCells[1] = new PdfPCell(new Paragraph(bearings.getCountry(), font));
+        itemCells[1] = new PdfPCell(new Paragraph(bearings.getCountryEn(), font));
           for (int i = 0; i < 2; i++) {
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
             itemTable.addCell(itemCells[i]);
@@ -233,7 +233,7 @@ public class BearingsPdf {
         }
    
         itemCells[0] = new PdfPCell(new Paragraph("Size", font));
-        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getSize()), font));
+        itemCells[1] = new PdfPCell(new Paragraph(String.valueOf(bearings.getInnerDiameter()+"x"+bearings.getOuterDiameter()+"x"+bearings.getWidth()), font));
         for (int i = 0; i < 2; i++) {
             itemCells[i].setBackgroundColor(new BaseColor(238, 238, 238));
             itemCells[i].setBorderColor(new BaseColor(22, 22, 22));
@@ -351,7 +351,7 @@ public class BearingsPdf {
     public static String createPdfBearings(String path, BearingsIndustrial bearings, String company, String director, boolean showPrice) throws Exception {
      
         model = bearings.getModel();
-        type = bearings.getType();
+        type = bearings.getTypeEn();
 //        year = light.getYear();
         
         Document document = new Document(PageSize.A4,50,50,50,50);

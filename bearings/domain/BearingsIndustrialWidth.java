@@ -22,37 +22,37 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Home
  */
 @Entity
-@Table(name="bearings_industrial_type", schema = "", catalog = "light_test")
+@Table(name="bearings_industrial_width", schema = "", catalog = "light_test")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BearingsIndustrialType.findAll", query = "SELECT l FROM BearingsIndustrialType l"),
-    @NamedQuery(name = "BearingsIndustrialType.findByType", query = "SELECT l FROM BearingsIndustrialType l WHERE l.type = :type"),
-    @NamedQuery(name = "BearingsIndustrialType.findByNum", query = "SELECT l FROM BearingsIndustrialType l WHERE l.num = :num")})
-public class BearingsIndustrialType implements Serializable {
+    @NamedQuery(name = "BearingsIndustrialWidth.findAll", query = "SELECT l FROM BearingsIndustrialWidth l"),
+    @NamedQuery(name = "BearingsIndustrialWidth.findByWidth", query = "SELECT l FROM BearingsIndustrialWidth l WHERE l.B = :B"),
+    @NamedQuery(name = "BearingsIndustrialWidth.findByNum", query = "SELECT l FROM BearingsIndustrialWidth l WHERE l.num = :num")})
+public class BearingsIndustrialWidth implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "type")
-    private String type;
+    @Column(name = "width")
+    private Integer B;
     @Column(name = "num")
     private Integer num;
 
-    public BearingsIndustrialType() {
+    public BearingsIndustrialWidth() {
     }
 
-    public BearingsIndustrialType(String type) {
-        this.type = type;
+    public BearingsIndustrialWidth(Integer B) {
+        this.B = B;
     }
 
-    public String getType() {
-        return type;
+    public Integer getWidth() {
+        return B;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setWidth(Integer B) {
+        this.B = B;
     }
 
     public Integer getNum() {
@@ -66,18 +66,18 @@ public class BearingsIndustrialType implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (type != null ? type.hashCode() : 0);
+        hash += (B != null ? B.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof BearingsIndustrialType)) {
+        if (!(object instanceof BearingsIndustrialWidth)) {
             return false;
         }
-        BearingsIndustrialType other = (BearingsIndustrialType) object;
-        if ((this.type == null && other.type != null) || (this.type != null && !this.type.equals(other.type))) {
+        BearingsIndustrialWidth other = (BearingsIndustrialWidth) object;
+        if ((this.B == null && other.B != null) || (this.B != null && !this.B.equals(other.B))) {
             return false;
         }
         return true;
@@ -85,7 +85,7 @@ public class BearingsIndustrialType implements Serializable {
 
     @Override
     public String toString() {
-        return "com.springapp.bearings.domain.BearingsIndustrialType[ type=" + type + " ]";
+        return "com.springapp.bearings.domain.BearingsIndustrialWidth[ width=" + B + " ]";
     }
     
 }

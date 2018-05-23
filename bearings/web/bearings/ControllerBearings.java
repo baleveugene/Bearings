@@ -33,21 +33,38 @@ public class ControllerBearings extends PrintInFile {
     
     @RequestMapping(value="/bearings", method = RequestMethod.GET)
     public ModelAndView bearings_all(  
-                                    @RequestParam(value = "size", required = false) String size,
+                                    @RequestParam(value = "innerdiameter", required = false) String innerDiameter,
+                                    @RequestParam(value = "outerdiameter", required = false) String outerDiameter,
+                                    @RequestParam(value = "width", required = false) String width,
                                     @RequestParam(value = "type", required = false) String[] type,
+                                    @RequestParam(value = "subtype", required = false) String[] subtype,
+                                    @RequestParam(value = "manufacturer", required = false) String manufacturer,
+                                    @RequestParam(value = "country", required = false) String country,
                                     HttpSession session ) {
         
         ModelAndView mv = new ModelAndView("bearings/bearings_all"); 
-        if(size ==null && type ==null) {
+        if(innerDiameter==null && outerDiameter==null && width==null && type==null && subtype==null && manufacturer==null && country==null) {
             mv.addObject("listBearingsIndustrial", bearingsIndustrialService.getListBearingsIndustrial());
         }else{
-            mv.addObject("listBearingsIndustrial", bearingsIndustrialService.getListBearingsIndustrial(size, type));
+            mv.addObject("listBearingsIndustrial", bearingsIndustrialService.getListBearingsIndustrial(
+                    innerDiameter, outerDiameter, width, type, subtype, manufacturer, country));
         }               
-        mv.addObject("listBearingsSize", bearingsIndustrialService.getListBearingsIndustrialSize()); 
+        mv.addObject("listBearingsInnerDiameter", bearingsIndustrialService.getListBearingsIndustrialInnerDiameter());
+        mv.addObject("listBearingsOuterDiameter", bearingsIndustrialService.getListBearingsIndustrialOuterDiameter());
+        mv.addObject("listBearingsWidth", bearingsIndustrialService.getListBearingsIndustrialWidth());
         mv.addObject("listBearingsType", bearingsIndustrialService.getListBearingsIndustrialType()); //  for   filter
+        mv.addObject("listBearingsSubType", bearingsIndustrialService.getListBearingsIndustrialSubType());
+        mv.addObject("listBearingsManufacturer", bearingsIndustrialService.getListBearingsIndustrialManufacturer());
+        mv.addObject("listBearingsCountry", bearingsIndustrialService.getListBearingsIndustrialCountry());
         
-         mv.addObject("size", size); // it is need for feed back !!!!!!
-         mv.addObject("type", type); // it is need for feed back !!!!!!
+        
+         mv.addObject("innerDiameter", innerDiameter); // it is need for feed back !!!!!!
+         mv.addObject("outerDiameter", outerDiameter);
+         mv.addObject("width", width);
+         mv.addObject("type", type);
+         mv.addObject("subtype", subtype);
+         mv.addObject("manufacturer", manufacturer);
+         mv.addObject("country", country); // it is need for feed back !!!!!!
          
   
          mv.addObject("message", new Message()); // it is need for feed back !!!!!!
@@ -56,8 +73,13 @@ public class ControllerBearings extends PrintInFile {
 
           String str = "" ;
           
-          if (size!=null && !size.equals("")) str += "&size="+size;
+          if (innerDiameter!=null && !innerDiameter.equals("")) str += "&innerdiameter="+innerDiameter;
+          if (outerDiameter!=null && !outerDiameter.equals("")) str += "&outerdiameter="+outerDiameter;
+          if (width!=null && !width.equals("")) str += "&width="+width;
           if (type!=null && !type.equals("")) str += "&type="+type[0];
+          if (subtype!=null && !subtype.equals("")) str += "&subtype="+subtype[0];
+          if (manufacturer!=null && !manufacturer.equals("")) str += "&manufacturer="+manufacturer;
+          if (country!=null && !country.equals("")) str += "&country="+country;
             session.setAttribute("currentpagewithpage", "/bearings?"+str);
           
         
@@ -71,7 +93,7 @@ public class ControllerBearings extends PrintInFile {
         BearingsIndustrial bearingsIndustrial = bearingsIndustrialService.getBearingsByUrl(url);
         mv.addObject("bearingsIndustrial", bearingsIndustrial);
         
-        mv.addObject("message", new Message("Bearings " +bearingsIndustrial.getType() , bearingsIndustrial.getModel())); // it is need for feed back !!!!!!
+        mv.addObject("message", new Message("Bearings " +bearingsIndustrial.getTypeEn() , bearingsIndustrial.getModel())); // it is need for feed back !!!!!!
         session.setAttribute("search", "bearings"); // for search
         session.setAttribute("currentpagewithpage", "/bearings-" + url);
         return mv;

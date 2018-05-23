@@ -63,22 +63,22 @@ public class BearingsIndustrial implements Serializable {
     @NotNull
     @Size(min = 1, max = 245)
     @Column(name = "type_en")
-    private String type_en;
+    private String typeEn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
     @Column(name = "type_ru")
-    private String type_ru;
+    private String typeRu;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
     @Column(name = "subType_en")
-    private String subType_en;
+    private String subTypeEn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
     @Column(name = "subType_ru")
-    private String subType_ru;
+    private String subTypeRu;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -89,22 +89,22 @@ public class BearingsIndustrial implements Serializable {
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "manufacturer_en")
-    private String manufacturer_en;
+    private String manufacturerEn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "manufacturer_ru")
-    private String manufacturer_ru;
+    private String manufacturerRu;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "country_en")
-    private String country_en;
+    private String countryEn;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "country_ru")
-    private String country_ru;
+    private String countryRu;
     @Basic(optional = false)
     @NotNull
     @Column(name = "basic_dynamic_load_rating")
@@ -188,21 +188,21 @@ public class BearingsIndustrial implements Serializable {
         this.model = model;
     }
 
-    public BearingsIndustrial(String model, String type_en, String subType_en, 
-            String manufacturer_en, String country_en, String type_ru, String subType_ru, 
-            String manufacturer_ru, String country_ru, int basicDynamicLoadRating, 
+    public BearingsIndustrial(String model, String typeEn, String subTypeEn, 
+            String manufacturerEn, String countryEn, String typeRu, String subTypeRu, 
+            String manufacturerRu, String countryRu, int basicDynamicLoadRating, 
             int basicStaticLoadRating, int fatiqueLoadLimit, int referenceSpeed, 
             int limitingSpeed, int d, int D, int B, String weight, String temperatureWork, 
             String guarantee) {
         this.model = model;
-        this.type_en = type_en;
-        this.subType_en = subType_en;
-        this.manufacturer_en = manufacturer_en;
-        this.country_en = country_en;
-        this.type_en = type_ru;
-        this.subType_en = subType_ru;
-        this.manufacturer_en = manufacturer_ru;
-        this.country_en = country_ru;
+        this.typeEn = typeEn;
+        this.subTypeEn = subTypeEn;
+        this.manufacturerEn = manufacturerEn;
+        this.countryEn = countryEn;
+        this.typeRu = typeRu;
+        this.subTypeRu = subTypeRu;
+        this.manufacturerRu = manufacturerRu;
+        this.countryRu = countryRu;
         this.basicDynamicLoadRating = basicDynamicLoadRating;
         this.basicStaticLoadRating = basicStaticLoadRating;
         this.fatiqueLoadLimit = fatiqueLoadLimit;
@@ -232,36 +232,36 @@ public class BearingsIndustrial implements Serializable {
         this.url = url;
     }
 
-    public String getType_en() {
-        return type_en;
+    public String getTypeEn() {
+        return typeEn;
     }
 
-    public void setType_en(String type_en) {
-        this.type_en = type_en;
+    public void setTypeEn(String typeEn) {
+        this.typeEn = typeEn;
     }
     
-     public String getSubType_en() {
-        return subType_en;
+     public String getSubTypeEn() {
+        return subTypeEn;
     }
 
-    public void setSubType_en(String subType_en) {
-        this.subType_en = subType_en;
+    public void setSubTypeEn(String subTypeEn) {
+        this.subTypeEn = subTypeEn;
     }
     
-    public String getType_ru() {
-        return type_ru;
+    public String getTypeRu() {
+        return typeRu;
     }
 
-    public void setType_ru(String type_ru) {
-        this.type_ru = type_ru;
+    public void setTypeRu(String typeRu) {
+        this.typeRu = typeRu;
     }
     
-     public String getSubType_ru() {
-        return subType_ru;
+     public String getSubTypeRu() {
+        return subTypeRu;
     }
 
-    public void setSubType_ru(String subType_ru) {
-        this.subType_ru = subType_ru;
+    public void setSubTypeRu(String subTypeRu) {
+        this.subTypeRu = subTypeRu;
     }
 
     public String getModel() {
@@ -272,36 +272,36 @@ public class BearingsIndustrial implements Serializable {
         this.model = model;
     }
 
-    public String getManufacturer_en() {
-        return manufacturer_en;
+    public String getManufacturerEn() {
+        return manufacturerEn;
     }
 
-    public void setManufacturer_en(String manufacturer_en) {
-        this.manufacturer_en = manufacturer_en;
+    public void setManufacturerEn(String manufacturerEn) {
+        this.manufacturerEn = manufacturerEn;
     }
 
-    public String getCountry_en() {
-        return country_en;
+    public String getCountryEn() {
+        return countryEn;
     }
 
-    public void setCountry_en(String country_en) {
-        this.country_en = country_en;
+    public void setCountryEn(String countryEn) {
+        this.countryEn = countryEn;
     }
     
-    public String getManufacturer_ru() {
-        return manufacturer_en;
+    public String getManufacturerRu() {
+        return manufacturerRu;
     }
 
-    public void setManufacturer_ru(String manufacturer_ru) {
-        this.manufacturer_ru = manufacturer_ru;
+    public void setManufacturerRu(String manufacturerRu) {
+        this.manufacturerRu = manufacturerRu;
     }
 
-    public String getCountry_ru() {
-        return country_ru;
+    public String getCountryRu() {
+        return countryRu;
     }
 
-    public void setCountry_ru(String country_ru) {
-        this.country_ru = country_ru;
+    public void setCountryRu(String countryRu) {
+        this.countryRu = countryRu;
     }
 
     public int getBasicDynamicLoadRating() {

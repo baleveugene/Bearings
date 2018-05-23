@@ -4,13 +4,17 @@ package com.springapp.bearings.service;
 import com.springapp.bearings.dao.BearingsIndustrialDao;
 
 import com.springapp.bearings.domain.BearingsIndustrial;
-import com.springapp.bearings.domain.BearingsIndustrialSize;
+import com.springapp.bearings.domain.BearingsIndustrialCountry;
+import com.springapp.bearings.domain.BearingsIndustrialInnerDiameter;
+import com.springapp.bearings.domain.BearingsIndustrialOuterDiameter;
+import com.springapp.bearings.domain.BearingsIndustrialWidth;
+import com.springapp.bearings.domain.BearingsIndustrialManufacturer;
 import com.springapp.bearings.domain.BearingsIndustrialType;
+import com.springapp.bearings.domain.BearingsIndustrialSubType;
 
 import com.springapp.bearings.util.ImageUtilBearings;
 import com.springapp.bearings.util.UploadMultipartFileUtilBearings;
 import com.springapp.bearings.util.exel.ParserExcelBearingsIndustrial;
-import com.springapp.light.domain.LightOffice;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,8 +50,18 @@ public class BearingsIndustrialServiceImpl implements BearingsIndustrialService 
     }           
     
     @Override @Transactional
-    public List<BearingsIndustrialSize> getListBearingsIndustrialSize() {
-    return  bearingsIndustrialDao.getListBearingsIndustrialSize();
+    public List<BearingsIndustrialInnerDiameter> getListBearingsIndustrialInnerDiameter() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialInnerDiameter();
+    }
+    
+    @Override @Transactional
+    public List<BearingsIndustrialOuterDiameter> getListBearingsIndustrialOuterDiameter() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialOuterDiameter();
+    }
+    
+     @Override @Transactional
+    public List<BearingsIndustrialWidth> getListBearingsIndustrialWidth() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialWidth();
     }
             
     @Override @Transactional
@@ -56,8 +70,26 @@ public class BearingsIndustrialServiceImpl implements BearingsIndustrialService 
     }
     
     @Override @Transactional
-    public List<BearingsIndustrial> getListBearingsIndustrial(String size, String[] arrType) {
-    return  bearingsIndustrialDao.getListBearingsIndustrial(size, arrType);
+    public List<BearingsIndustrialSubType> getListBearingsIndustrialSubType() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialSubType();
+    }
+    
+    @Override @Transactional
+    public List<BearingsIndustrialManufacturer> getListBearingsIndustrialManufacturer() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialManufacturer();
+    }
+    
+    @Override @Transactional
+    public List<BearingsIndustrialCountry> getListBearingsIndustrialCountry() {
+    return  bearingsIndustrialDao.getListBearingsIndustrialCountry();
+    }
+    
+    @Override @Transactional
+    public List<BearingsIndustrial> getListBearingsIndustrial(
+            String innerDiameter, String outerDiameter, String width, 
+            String[] type, String[] subtype, String manufacturer, String country) {
+    return  bearingsIndustrialDao.getListBearingsIndustrial(
+            innerDiameter, outerDiameter, width, type, subtype, manufacturer, country);
     }   
    
     @Override    @Transactional
