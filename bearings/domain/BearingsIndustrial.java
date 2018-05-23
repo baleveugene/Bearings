@@ -25,17 +25,23 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "BearingsIndustrial.findAll", query = "SELECT l FROM BearingsIndustrial l"),
     @NamedQuery(name = "BearingsIndustrial.findById", query = "SELECT l FROM BearingsIndustrial l WHERE l.id = :id"),
     @NamedQuery(name = "BearingsIndustrial.findByUrl", query = "SELECT l FROM BearingsIndustrial l WHERE l.url = :url"),
-    @NamedQuery(name = "BearingsIndustrial.findByType", query = "SELECT l FROM BearingsIndustrial l WHERE l.type = :type"),
-    @NamedQuery(name = "BearingsIndustrial.findBySubType", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType = :subType"),
+    @NamedQuery(name = "BearingsIndustrial.findByTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.type_en = :type_en"),
+    @NamedQuery(name = "BearingsIndustrial.findByTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.type_ru = :type_ru"),
+    @NamedQuery(name = "BearingsIndustrial.findBySubTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType_en = :subType_en"),
+    @NamedQuery(name = "BearingsIndustrial.findBySubTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType_ru = :subType_ru"),
     @NamedQuery(name = "BearingsIndustrial.findByModel", query = "SELECT l FROM BearingsIndustrial l WHERE l.model = :model"),
-    @NamedQuery(name = "BearingsIndustrial.findByManufacturer", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer = :manufacturer"),
-    @NamedQuery(name = "BearingsIndustrial.findByCountry", query = "SELECT l FROM BearingsIndustrial l WHERE l.country = :country"),
+    @NamedQuery(name = "BearingsIndustrial.findByManufacturerEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer_en = :manufacturer_en"),
+    @NamedQuery(name = "BearingsIndustrial.findByManufacturerRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer_ru = :manufacturer_ru"),
+    @NamedQuery(name = "BearingsIndustrial.findByCountryEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.country_en = :country_en"),
+    @NamedQuery(name = "BearingsIndustrial.findByCountryRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.country_ru = :country_ru"),
     @NamedQuery(name = "BearingsIndustrial.findByBasicDynamicLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicDynamicLoadRating = :basicDynamicLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByBasicStaticLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicStaticLoadRating = :basicStaticLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByFatiqueLoadLimit", query = "SELECT l FROM BearingsIndustrial l WHERE l.fatiqueLoadLimit = :fatiqueLoadLimit"),
     @NamedQuery(name = "BearingsIndustrial.findByReferenceSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.referenceSpeed = :referenceSpeed"),
     @NamedQuery(name = "BearingsIndustrial.findByLimitingSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.limitingSpeed = :limitingSpeed"),
-    @NamedQuery(name = "BearingsIndustrial.findBySize", query = "SELECT l FROM BearingsIndustrial l WHERE l.size = :size"),
+    @NamedQuery(name = "BearingsIndustrial.findByInnerDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.d = :d"),
+    @NamedQuery(name = "BearingsIndustrial.findByOuterDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.D = :D"),
+    @NamedQuery(name = "BearingsIndustrial.findByWidth", query = "SELECT l FROM BearingsIndustrial l WHERE l.B = :B"),
     @NamedQuery(name = "BearingsIndustrial.findByWeight", query = "SELECT l FROM BearingsIndustrial l WHERE l.weight = :weight"),
     @NamedQuery(name = "BearingsIndustrial.findByTemperatureWork", query = "SELECT l FROM BearingsIndustrial l WHERE l.temperatureWork = :temperatureWork"),
     @NamedQuery(name = "BearingsIndustrial.findByGuarantee", query = "SELECT l FROM BearingsIndustrial l WHERE l.guarantee = :guarantee"),
@@ -56,13 +62,23 @@ public class BearingsIndustrial implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
-    @Column(name = "type")
-    private String type;
+    @Column(name = "type_en")
+    private String type_en;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 245)
-    @Column(name = "subType")
-    private String subType;
+    @Column(name = "type_ru")
+    private String type_ru;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 245)
+    @Column(name = "subType_en")
+    private String subType_en;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 245)
+    @Column(name = "subType_ru")
+    private String subType_ru;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -72,13 +88,23 @@ public class BearingsIndustrial implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "manufacturer")
-    private String manufacturer;
+    @Column(name = "manufacturer_en")
+    private String manufacturer_en;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "country")
-    private String country;
+    @Column(name = "manufacturer_ru")
+    private String manufacturer_ru;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "country_en")
+    private String country_en;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "country_ru")
+    private String country_ru;
     @Basic(optional = false)
     @NotNull
     @Column(name = "basic_dynamic_load_rating")
@@ -100,10 +126,17 @@ public class BearingsIndustrial implements Serializable {
     @Column(name = "limiting_speed")
     private int limitingSpeed;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 245)
-    @Column(name = "size")
-    private String size;   
+    @NotNull   
+    @Column(name = "d_inner_diameter")
+    private int d;
+    @Basic(optional = false)
+    @NotNull   
+    @Column(name = "D_outer_diameter")
+    private int D;
+    @Basic(optional = false)
+    @NotNull   
+    @Column(name = "B_width")
+    private int B;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -140,6 +173,10 @@ public class BearingsIndustrial implements Serializable {
     @Size(max = 65535)
     @Column(name = "description_en")
     private String descriptionEn;
+    @Lob
+    @Size(max = 65535)
+    @Column(name = "description_ru")
+    private String descriptionRu;
     @Size(max = 255)
     @Column(name = "video1")
     private String video1;
@@ -151,21 +188,29 @@ public class BearingsIndustrial implements Serializable {
         this.model = model;
     }
 
-    public BearingsIndustrial(String model, String type, String subType, 
-            String manufacturer, String country, int basicDynamicLoadRating, 
+    public BearingsIndustrial(String model, String type_en, String subType_en, 
+            String manufacturer_en, String country_en, String type_ru, String subType_ru, 
+            String manufacturer_ru, String country_ru, int basicDynamicLoadRating, 
             int basicStaticLoadRating, int fatiqueLoadLimit, int referenceSpeed, 
-            int limitingSpeed, String size, String weight, String temperatureWork, String guarantee) {
+            int limitingSpeed, int d, int D, int B, String weight, String temperatureWork, 
+            String guarantee) {
         this.model = model;
-        this.type = type;
-        this.subType = subType;
-        this.manufacturer = manufacturer;
-        this.country = country;
+        this.type_en = type_en;
+        this.subType_en = subType_en;
+        this.manufacturer_en = manufacturer_en;
+        this.country_en = country_en;
+        this.type_en = type_ru;
+        this.subType_en = subType_ru;
+        this.manufacturer_en = manufacturer_ru;
+        this.country_en = country_ru;
         this.basicDynamicLoadRating = basicDynamicLoadRating;
         this.basicStaticLoadRating = basicStaticLoadRating;
         this.fatiqueLoadLimit = fatiqueLoadLimit;
         this.referenceSpeed = referenceSpeed;
         this.limitingSpeed = limitingSpeed;
-        this.size = size;
+        this.d = d;
+        this.D = D;
+        this.B = B;
         this.weight = weight;
         this.temperatureWork = temperatureWork;
         this.guarantee = guarantee;
@@ -187,20 +232,36 @@ public class BearingsIndustrial implements Serializable {
         this.url = url;
     }
 
-    public String getType() {
-        return type;
+    public String getType_en() {
+        return type_en;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType_en(String type_en) {
+        this.type_en = type_en;
     }
     
-     public String getSubType() {
-        return subType;
+     public String getSubType_en() {
+        return subType_en;
     }
 
-    public void setSubType(String subType) {
-        this.subType = subType;
+    public void setSubType_en(String subType_en) {
+        this.subType_en = subType_en;
+    }
+    
+    public String getType_ru() {
+        return type_ru;
+    }
+
+    public void setType_ru(String type_ru) {
+        this.type_ru = type_ru;
+    }
+    
+     public String getSubType_ru() {
+        return subType_ru;
+    }
+
+    public void setSubType_ru(String subType_ru) {
+        this.subType_ru = subType_ru;
     }
 
     public String getModel() {
@@ -211,20 +272,36 @@ public class BearingsIndustrial implements Serializable {
         this.model = model;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getManufacturer_en() {
+        return manufacturer_en;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setManufacturer_en(String manufacturer_en) {
+        this.manufacturer_en = manufacturer_en;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountry_en() {
+        return country_en;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry_en(String country_en) {
+        this.country_en = country_en;
+    }
+    
+    public String getManufacturer_ru() {
+        return manufacturer_en;
+    }
+
+    public void setManufacturer_ru(String manufacturer_ru) {
+        this.manufacturer_ru = manufacturer_ru;
+    }
+
+    public String getCountry_ru() {
+        return country_ru;
+    }
+
+    public void setCountry_ru(String country_ru) {
+        this.country_ru = country_ru;
     }
 
     public int getBasicDynamicLoadRating() {
@@ -267,14 +344,30 @@ public class BearingsIndustrial implements Serializable {
         this.limitingSpeed = limitingSpeed;
     }
 
-    public String getSize() {
-        return size;
+    public int getInnerDiameter() {
+        return d;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setInnerDiameter(int d) {
+        this.d = d;
     }
 
+    public int getOuterDiameter() {
+        return D;
+    }
+
+    public void setOuterDiameter(int D) {
+        this.D = D;
+    }
+    
+    public int getWidth() {
+        return B;
+    }
+
+    public void setWidth(int B) {
+        this.B = B;
+    }
+    
     public String getWeight() {
         return weight;
     }
@@ -353,6 +446,14 @@ public class BearingsIndustrial implements Serializable {
 
     public void setDescriptionEn(String descriptionEn) {
         this.descriptionEn = descriptionEn;
+    }
+    
+    public String getDescriptionRu() {
+        return descriptionRu;
+    }
+
+    public void setDescriptionRu(String descriptionRu) {
+        this.descriptionRu = descriptionRu;
     }
 
     public String getVideo1() {
