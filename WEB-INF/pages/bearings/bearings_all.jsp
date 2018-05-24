@@ -125,29 +125,124 @@
                             </li>
                         </c:forEach>
                     </ul>
-                </div>
-          
+                </div>        
             </c:if>
-
-                           <!--Amount of axes -->      
-                <c:if test="${!empty listBearingsSize}" >               
+            
+            <!--  SubType  -->
+            <c:if test="${!empty listBearingsSubType}">
                 <div class="category-filter">
-                            <h2> <spring:message code="bearingsall.size" text="Size_(dxDxh,mm)" /> </h2>
+                    <h2><spring:message code="bearingsall.subtype" text="Subtype" /></h2>
+                    <ul>
+                        <c:forEach items="${listBearingsSubType}" var="subtypes">
+                            <li>
+                                           <input class="le-checkbox" 
+                                           <c:forTokens items="${subtype}" delims=" " var="role">
+                                                 <c:if test="${subtypes.subType==role}">checked</c:if> 
+                                            </c:forTokens>
+                                     name="subtype" type="checkbox" value="${subtypes.subType}"/>
+                                
+                                <label>${subtypes.subType} (${subtypes.num}) </label>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>         
+            </c:if>
+            
+            <!--Manufacturer -->      
+                <c:if test="${!empty listBearingsManufacturer}" >               
+                <div class="category-filter">
+                            <h2> <spring:message code="bearingsall.manufacturer" text="Manufacturer" /> </h2>
                              <!--<hr>--> 
                              <div id="item-count" class="le-select">
-                                 <select name="size">  
-                                     <option value='' ><spring:message code="bearingsall.size_not_selected" text="Size not selected" /></option> 
+                                 <select name="manufacturer">  
+                                     <option value='' ><spring:message code="bearingsall.manufacturer_not_selected" text="Manufacturer not selected" /></option> 
                                           <!--<option disabled>Select axes</option>-->  
-                                          <c:forEach items="${listBearingsSize}" var="aa">
-                                              <option value="${aa.size}"
-                                                         <c:if test="${aa.size == size}">selected</c:if>                 
-                                                  > ${aa.size} (${aa.num}) </option>
+                                          <c:forEach items="${listBearingsManufacturer}" var="aa">
+                                              <option value="${aa.manufacturer}"
+                                                         <c:if test="${aa.manufacturer == manufacturer}">selected</c:if>                 
+                                                  > ${aa.manufacturer} (${aa.num}) </option>
                                           </c:forEach>
                                  </select>
                             </div>
                         </div>         
-            </c:if>
-<br/>
+                </c:if>
+            
+            <!--Country -->      
+                <c:if test="${!empty listBearingsCountry}" >               
+                <div class="category-filter">
+                            <h2> <spring:message code="bearingsall.country" text="Country" /> </h2>
+                             <!--<hr>--> 
+                             <div id="item-count" class="le-select">
+                                 <select name="country">  
+                                     <option value='' ><spring:message code="bearingsall.country_not_selected" text="Country not selected" /></option> 
+                                          <!--<option disabled>Select axes</option>-->  
+                                          <c:forEach items="${listBearingsCountry}" var="aa">
+                                              <option value="${aa.country}"
+                                                         <c:if test="${aa.country == country}">selected</c:if>                 
+                                                  > ${aa.country} (${aa.num}) </option>
+                                          </c:forEach>
+                                 </select>
+                            </div>
+                        </div>         
+                </c:if>
+
+                <!--Inner Diameter -->      
+                <c:if test="${!empty listBearingsInnerDiameter}" >               
+                <div class="category-filter">
+                            <h2> <spring:message code="bearingsall.innerdiameter" text="Inner Diameter d,mm" /> </h2>
+                             <!--<hr>--> 
+                             <div id="item-count" class="le-select">
+                                 <select name="d">  
+                                     <option value='' ><spring:message code="bearingsall.innerdiameter_not_selected" text="Inner Diameter not selected" /></option> 
+                                          <!--<option disabled>Select axes</option>-->  
+                                          <c:forEach items="${listBearingsInnerDiameter}" var="aa">
+                                              <option value="${aa.innerDiameter}"
+                                                         <c:if test="${aa.innerDiameter == innerDiameter}">selected</c:if>                 
+                                                  > ${aa.innerDiameter} (${aa.num}) </option>
+                                          </c:forEach>
+                                 </select>
+                            </div>
+                        </div>         
+                </c:if>
+                
+                <!--Outer Diameter -->      
+                <c:if test="${!empty listBearingsOuterDiameter}" >               
+                <div class="category-filter">
+                            <h2> <spring:message code="bearingsall.outerdiameter" text="Outer Diameter d,mm" /> </h2>
+                             <!--<hr>--> 
+                             <div id="item-count" class="le-select">
+                                 <select name="D">  
+                                     <option value='' ><spring:message code="bearingsall.outerdiameter_not_selected" text="Outer Diameter not selected" /></option> 
+                                          <!--<option disabled>Select axes</option>-->  
+                                          <c:forEach items="${listBearingsOuterDiameter}" var="aa">
+                                              <option value="${aa.outerDiameter}"
+                                                         <c:if test="${aa.outerDiameter == outerDiameter}">selected</c:if>                 
+                                                  > ${aa.outerDiameter} (${aa.num}) </option>
+                                          </c:forEach>
+                                 </select>
+                            </div>
+                        </div>         
+                </c:if>
+                
+                <!--Width -->      
+                <c:if test="${!empty listBearingsWidth}" >               
+                <div class="category-filter">
+                            <h2> <spring:message code="bearingsall.width" text="Width B,mm" /> </h2>
+                             <!--<hr>--> 
+                             <div id="item-count" class="le-select">
+                                 <select name="B">  
+                                     <option value='' ><spring:message code="bearingsall.width_not_selected" text="Width not selected" /></option> 
+                                          <!--<option disabled>Select axes</option>-->  
+                                          <c:forEach items="${listBearingsWidth}" var="aa">
+                                              <option value="${aa.width}"
+                                                         <c:if test="${aa.width == width}">selected</c:if>                 
+                                                  > ${aa.width} (${aa.num}) </option>
+                                          </c:forEach>
+                                 </select>
+                            </div>
+                        </div>         
+                </c:if>
+        <br/>
             <button class="le-button small">
               <spring:message code="bearingsall.filter" text="Filter Bearings" /> 
             </button>   
@@ -217,7 +312,7 @@
                                     <div class="title">
                                         <a href="/bearings-${bearings.url}"> ${bearings.model}  </a>
                                     </div>
-                                    <div class="brand"><spring:message code="bearingsall.type" text="Type" />:  ${bearings.type}</div>
+                                    <div class="brand"><spring:message code="bearingsall.type" text="Type" />:  ${bearings.typeEn}</div>
 
                                     <div class="brand"> 
                                         ${bearings.basicDynamicLoadRating} <spring:message code="bearingsall.kN" text="kN" />, 
@@ -226,10 +321,6 @@
                                         ${bearings.limitingSpeed} <spring:message code="bearingsall.r_min" text="r/min" />
                                     </div>
 
-                                    <div class="brand">
-                                        <spring:message code="bearingsall.size" text="Size" />: ${bearings.size} 
-                                    </div>
-                                    
                                 </div>
                                 <div class="prices">
                                     <sec:authorize access="hasRole('ROLE_USER')">
@@ -329,10 +420,10 @@
                     <div class="body">
                         <div class="label-discount green">-10% sale</div>
                         <div class="title">
-                            <a href="/bearings-${bearings.url}">${bearings.manufacturer} ${bearings.model}</a>
+                            <a href="/bearings-${bearings.url}">${bearings.manufacturerEn} ${bearings.model}</a>
                         </div>
                             <div class="brand">${product.year}/ location: ${product.machinelocation}
-                            <br> L*H*B: ${bearings.size}
+                            <br> d*D*B: ${bearings.innerDiameter}x${bearings.outerDiameter}x${bearings.width}
                             </div>
                             <!--<div class="brand"></div>-->
                         <div class="excerpt">

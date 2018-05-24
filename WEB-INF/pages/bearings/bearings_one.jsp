@@ -84,11 +84,11 @@
                         <!--</li>--> 
   
                              <li class="breadcrumb-item">
-                            <a href="/bearings?type=${bearingsIndustrial.type}">Bearings - ${bearingsIndustrial.type}</a>
+                            <a href="/bearings?type=${bearingsIndustrial.typeEn}">Bearings - ${bearingsIndustrial.typeEn}</a>
                         </li> 
                         
                        <li class="breadcrumb-item current">
-                            <a href="">${bearingsIndustrial.manufacturer} - ${bearingsIndustrial.model}</a>
+                            <a href="">${bearingsIndustrial.manufacturerEn} - ${bearingsIndustrial.model}</a>
                         </li> 
                     </ul>
                 </li><!-- /.breadcrumb-nav-holder --> 
@@ -215,7 +215,7 @@
         <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
 
         <div class="title"><a href="#">${bearingsIndustrial.model}</a></div>
-        <div class="brand">  Type: ${bearingsIndustrial.type}</div>
+        <div class="brand">  Type: ${bearingsIndustrial.typeEn}</div>
 
         <div class="social-row">
             <span class="st_facebook_hcount"></span>
@@ -302,17 +302,17 @@
              
                         <li>
                             <label><spring:message code="bearingscompare.type" text="type" /></label>
-                            <div class="value">${bearingsIndustrial.type}</div>
+                            <div class="value">${bearingsIndustrial.typeEn}</div>
                             
                         </li>
                         <li>
                             <label><spring:message code="bearingscompare.manufacturer" text="Manufacturer" /></label>
-                            <div class="value">${bearingsIndustrial.manufacturer}</div>
+                            <div class="value">${bearingsIndustrial.manufacturerEn}</div>
                             
                         </li>
                         <li>
                             <label><spring:message code="bearingscompare.country" text="Country" /></label>
-                            <div class="value">${bearingsIndustrial.country}</div>
+                            <div class="value">${bearingsIndustrial.countryEn}</div>
                         </li>
                         <li>
                             <label><spring:message code="bearingscompare.basic_dynamic_load_rating" text="Basic dynamic load rating, kN"/></label>
@@ -340,7 +340,7 @@
                         
                         <li>
                             <label><spring:message code="bearingscompare.size" text="size"/></label>
-                            <div class="value">${bearingsIndustrial.size}</div>
+                            <div class="value">${bearingsIndustrial.innerDiameter}x${bearingsIndustrial.outerDiameter}x${bearingsIndustrial.width}</div>
                         </li>                                              
                         
                         <li>
@@ -429,7 +429,7 @@
                         </div>
                         <div class="body">
                             <div class="title">
-                                <a href="/bearings${bearings.id}">${bearings.model} <br>     ${bearings.manufacturer}</a>
+                                <a href="/bearings${bearings.id}">${bearings.model} <br>     ${bearings.manufacturerEn}</a>
                             </div>
                             <div class="brand">${bearings.year}</div>
                         </div>

@@ -110,8 +110,9 @@
               <th class="checkbox"><input type="checkbox" name="" value="" class="check-all" /></th>
          
               <th>Model</th>                           
-              <th>producer</th>           
-              <th>LxHxB</th>
+              <th>Producer</th>           
+              <th>Country</th>
+              <th>dxDxB</th>
 <!--              <th>Photo1</th>
               <th>Photo2</th>
               <th>Photo3</th>-->
@@ -125,11 +126,12 @@
               <td class="checkbox"><input type="checkbox" name="" value="" /></td>
             
               <td><a href="/bearings-${bearings.url}">${bearings.model}</a></td>            
-              <td>${bearings.manufacturer}</td>                             
-              <td>${bearings.size} </td>             
+              <td>${bearings.manufacturerEn}</td>                             
+              <td>${bearings.countryEn} </td>
+              <td>${bearings.innerDiameter}x${bearings.outerDiameter}x${bearings.width} </td>
         
               <td class="action">
-                <a href="bearings_for_manufacturer/${bearings.manufacturer}/${bearings.url}/delete" class="ico ico-delete">Delete</a>
+                <a href="bearings_for_manufacturer/${bearings.manufacturerEn}/${bearings.url}/delete" class="ico ico-delete">Delete</a>
                 <a href="" class="ico ico-edit">Edit</a>
               </td>
             </tr>
