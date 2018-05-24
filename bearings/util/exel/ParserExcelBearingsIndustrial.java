@@ -51,6 +51,7 @@ public class ParserExcelBearingsIndustrial  {
         
         df.formatCellValue(rowIterator.next().getCell(1)).trim();
         printInFile("readBearingsIndustrial.txt", "1");
+        rowIterator.next();
         
         Row curentRow = rowIterator.next();                      
         bearingsIndustrial.setTypeEn(df.formatCellValue(curentRow.getCell(1)).trim());
@@ -64,6 +65,7 @@ public class ParserExcelBearingsIndustrial  {
         bearingsIndustrial.setSubTypeRu(df.formatCellValue(curentRow.getCell(2)).trim());
         printInFile("readBearingsIndustrial.txt", "3 setSubType = " + bearingsIndustrial.getSubTypeEn());
         System.out.println(bearingsIndustrial.getSubTypeEn());
+        System.out.println(bearingsIndustrial.getSubTypeRu());
         
         bearingsIndustrial.setModel(df.formatCellValue(rowIterator.next().getCell(1)).trim()); 
         printInFile("readBearingsIndustrial.txt", "4 getModel = " + bearingsIndustrial.getModel());             
@@ -80,7 +82,7 @@ public class ParserExcelBearingsIndustrial  {
          
         curentRow = rowIterator.next();
         bearingsIndustrial.setCountryEn(df.formatCellValue(curentRow.getCell(1)).trim());
-        bearingsIndustrial.setCountryRu(df.formatCellValue(curentRow.getCell(1)).trim());
+        bearingsIndustrial.setCountryRu(df.formatCellValue(curentRow.getCell(2)).trim());
         printInFile("readBearingsIndustrial.txt", "7 setCountry = " + bearingsIndustrial.getCountryEn());        
         System.out.println(bearingsIndustrial.getCountryEn());
          

@@ -35,23 +35,23 @@ public class BearingsIndustrialWidth implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "width")
-    private Integer B;
+    @Column(name = "B_width")
+    private String B;
     @Column(name = "num")
     private Integer num;
 
     public BearingsIndustrialWidth() {
     }
 
-    public BearingsIndustrialWidth(Integer B) {
+    public BearingsIndustrialWidth(String B) {
         this.B = B;
     }
 
-    public Integer getWidth() {
+    public String getWidth() {
         return B;
     }
 
-    public void setWidth(Integer B) {
+    public void setWidth(String B) {
         this.B = B;
     }
 

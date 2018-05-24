@@ -35,23 +35,23 @@ public class BearingsIndustrialOuterDiameter implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "D")
-    private Integer D;
+    @Column(name = "D_outer_diameter")
+    private String D;
     @Column(name = "num")
     private Integer num;
 
     public BearingsIndustrialOuterDiameter() {
     }
 
-    public BearingsIndustrialOuterDiameter(Integer D) {
+    public BearingsIndustrialOuterDiameter(String D) {
         this.D = D;
     }
 
-    public Integer getOuterDiameter() {
+    public String getOuterDiameter() {
         return D;
     }
 
-    public void setOuterDiameter(Integer D) {
+    public void setOuterDiameter(String D) {
         this.D = D;
     }
 

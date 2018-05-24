@@ -103,7 +103,6 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     public List<BearingsIndustrialSubType> getListBearingsIndustrialSubType(){ 
        return (List<BearingsIndustrialSubType> )sessionFactory.getCurrentSession()
                .createCriteria(BearingsIndustrialSubType.class)
-               .addOrder(Order.desc("subtype"))
                .list();
     }
     
@@ -111,7 +110,6 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     public List<BearingsIndustrialManufacturer> getListBearingsIndustrialManufacturer(){ 
        return (List<BearingsIndustrialManufacturer> )sessionFactory.getCurrentSession()
                .createCriteria(BearingsIndustrialManufacturer.class)
-               .addOrder(Order.desc("manufacturer"))
                .list();
     }
     
@@ -119,7 +117,6 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
     public List<BearingsIndustrialCountry> getListBearingsIndustrialCountry(){ 
        return (List<BearingsIndustrialCountry> )sessionFactory.getCurrentSession()
                .createCriteria(BearingsIndustrialCountry.class)
-               .addOrder(Order.desc("country"))
                .list();
     }
          
@@ -138,40 +135,40 @@ public class BearingsIndustrialDaoImpl extends PrintInFile implements BearingsIn
             String[] type, String[] subtype, String manufacturer, String country) {
         Criteria crit = sessionFactory.getCurrentSession().createCriteria(BearingsIndustrial.class);
         if (innerDiameter != null && !innerDiameter.equals("")){            
-            String[] arrInnerDFromTo = innerDiameter.split("< d <= ");           
+            String[] arrInnerDFromTo = innerDiameter.split("<d<= ");           
             if(arrInnerDFromTo.length>1){
-                crit.add(Restrictions.between("inner_diameter", arrInnerDFromTo[0], arrInnerDFromTo[1]));
+                crit.add(Restrictions.between("innerDiameter", arrInnerDFromTo[0], arrInnerDFromTo[1]));
             } else{            
-                crit.add(Restrictions.sqlRestriction("inner_diameter >"+innerDiameter.substring(0, innerDiameter.indexOf("<"))));
+                crit.add(Restrictions.sqlRestriction("d_inner_diameter >"+innerDiameter.substring(0, innerDiameter.indexOf("<"))));
             }                    
         }
         if (outerDiameter != null && !outerDiameter.equals("")){            
-            String[] arrOuterDFromTo = outerDiameter.split("< D <= ");           
+            String[] arrOuterDFromTo = outerDiameter.split("<D<=");           
             if(arrOuterDFromTo.length>1){
-                crit.add(Restrictions.between("outer_diameter", arrOuterDFromTo[0], arrOuterDFromTo[1]));
+                crit.add(Restrictions.between("outerDiameter", arrOuterDFromTo[0], arrOuterDFromTo[1]));
             } else{            
-                crit.add(Restrictions.sqlRestriction("outer_diameter >"+outerDiameter.substring(0, outerDiameter.indexOf("<"))));
+                crit.add(Restrictions.sqlRestriction("D_outer_diameter >"+outerDiameter.substring(0, outerDiameter.indexOf("<"))));
             }                    
         }
         if (width != null && !width.equals("")){            
-            String[] arrWidthFromTo = width.split("< B <= ");           
+            String[] arrWidthFromTo = width.split("<B<=");           
             if(arrWidthFromTo.length>1){
                 crit.add(Restrictions.between("width", arrWidthFromTo[0], arrWidthFromTo[1]));
             } else{            
-                crit.add(Restrictions.sqlRestriction("width >"+width.substring(0, width.indexOf("<"))));
+                crit.add(Restrictions.sqlRestriction("B_width >"+width.substring(0, width.indexOf("<"))));
             }                    
         }
         if (type != null && !type[0].equals("")){   
-            crit.add(Restrictions.in("type", type));
+            crit.add(Restrictions.in("typeEn", type));
         }
         if (subtype != null && !subtype[0].equals("")){   
-            crit.add(Restrictions.in("subtype", subtype));
+            crit.add(Restrictions.in("subTypeEn", subtype));
         }
         if (manufacturer != null && !manufacturer.equals("")){   
-            crit.add(Restrictions.eq("manufacturer", manufacturer));
+            crit.add(Restrictions.eq("manufacturerEn", manufacturer));
         }
         if (country != null && !country.equals("")){   
-            crit.add(Restrictions.eq("country", country));
+            crit.add(Restrictions.eq("countryEn", country));
         }
         return crit.list();     
     }
@@ -235,19 +232,19 @@ else  list = session.createQuery("select M." + checkBoxName + " from BearingsInd
     
     private BearingsIndustrialInnerDiameter getBearingsIndustrialInnerDiameter(String val, int num) {
         BearingsIndustrialInnerDiameter bearingsIndustrialInnerDiameter = new BearingsIndustrialInnerDiameter();
-        bearingsIndustrialInnerDiameter.setInnerDiameter(Integer.valueOf(val));
+        bearingsIndustrialInnerDiameter.setInnerDiameter(val);
         bearingsIndustrialInnerDiameter.setNum(num);
         return bearingsIndustrialInnerDiameter;
     }
     private BearingsIndustrialOuterDiameter getBearingsIndustrialOuterDiameter(String val, int num) {
         BearingsIndustrialOuterDiameter bearingsIndustrialOuterDiameter = new BearingsIndustrialOuterDiameter();
-        bearingsIndustrialOuterDiameter.setOuterDiameter(Integer.valueOf(val));
+        bearingsIndustrialOuterDiameter.setOuterDiameter(val);
         bearingsIndustrialOuterDiameter.setNum(num);
         return bearingsIndustrialOuterDiameter;
     }
     private BearingsIndustrialWidth getBearingsIndustrialWidth(String val, int num) {
         BearingsIndustrialWidth bearingsIndustrialWidth = new BearingsIndustrialWidth();
-        bearingsIndustrialWidth.setWidth(Integer.valueOf(val));
+        bearingsIndustrialWidth.setWidth(val);
         bearingsIndustrialWidth.setNum(num);
         return bearingsIndustrialWidth;
     }

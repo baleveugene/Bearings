@@ -21,12 +21,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Home
  */
 @Entity
-@Table(name="bearings_industrial_size", schema = "", catalog = "light_test")
+@Table(name="bearings_industrial_inner_diameter", schema = "", catalog = "light_test")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BearingsIndustrialInnerDiameter.findAll", query = "SELECT l FROM BearingsIndustrialSize l"),
+    @NamedQuery(name = "BearingsIndustrialInnerDiameter.findAll", query = "SELECT l FROM BearingsIndustrialInnerDiameter l"),
     @NamedQuery(name = "BearingsIndustrialInnerDiameter.findByInnerDiameter", query = "SELECT l FROM BearingsIndustrialInnerDiameter l WHERE l.d = :d"),
-    @NamedQuery(name = "BearingsIndustrialInnerDiameter.findByNum", query = "SELECT l FROM BearingsIndustrialSize l WHERE l.num = :num")})
+    @NamedQuery(name = "BearingsIndustrialInnerDiameter.findByNum", query = "SELECT l FROM BearingsIndustrialInnerDiameter l WHERE l.num = :num")})
 public class BearingsIndustrialInnerDiameter implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,8 +34,8 @@ public class BearingsIndustrialInnerDiameter implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "d")
-    private Integer d;
+    @Column(name = "d_inner_diameter")
+    private String d;
     
     @Column(name = "num")
     private Integer num;
@@ -43,15 +43,15 @@ public class BearingsIndustrialInnerDiameter implements Serializable {
     public BearingsIndustrialInnerDiameter() {
     }
 
-    public BearingsIndustrialInnerDiameter(Integer d) {
+    public BearingsIndustrialInnerDiameter(String d) {
         this.d = d;
     }
 
-    public Integer getInnerDiameter() {
+    public String getInnerDiameter() {
         return d;
     }
 
-    public void setInnerDiameter(Integer d) {
+    public void setInnerDiameter(String d) {
         this.d = d;
     }
 

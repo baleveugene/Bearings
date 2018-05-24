@@ -25,23 +25,23 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "BearingsIndustrial.findAll", query = "SELECT l FROM BearingsIndustrial l"),
     @NamedQuery(name = "BearingsIndustrial.findById", query = "SELECT l FROM BearingsIndustrial l WHERE l.id = :id"),
     @NamedQuery(name = "BearingsIndustrial.findByUrl", query = "SELECT l FROM BearingsIndustrial l WHERE l.url = :url"),
-    @NamedQuery(name = "BearingsIndustrial.findByTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.type_en = :type_en"),
-    @NamedQuery(name = "BearingsIndustrial.findByTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.type_ru = :type_ru"),
-    @NamedQuery(name = "BearingsIndustrial.findBySubTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType_en = :subType_en"),
-    @NamedQuery(name = "BearingsIndustrial.findBySubTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.subType_ru = :subType_ru"),
+    @NamedQuery(name = "BearingsIndustrial.findByTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.typeEn = :typeEn"),
+    @NamedQuery(name = "BearingsIndustrial.findByTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.typeRu = :typeRu"),
+    @NamedQuery(name = "BearingsIndustrial.findBySubTypeEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.subTypeEn = :subTypeEn"),
+    @NamedQuery(name = "BearingsIndustrial.findBySubTypeRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.subTypeRu = :subTypeRu"),
     @NamedQuery(name = "BearingsIndustrial.findByModel", query = "SELECT l FROM BearingsIndustrial l WHERE l.model = :model"),
-    @NamedQuery(name = "BearingsIndustrial.findByManufacturerEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer_en = :manufacturer_en"),
-    @NamedQuery(name = "BearingsIndustrial.findByManufacturerRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturer_ru = :manufacturer_ru"),
-    @NamedQuery(name = "BearingsIndustrial.findByCountryEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.country_en = :country_en"),
-    @NamedQuery(name = "BearingsIndustrial.findByCountryRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.country_ru = :country_ru"),
+    @NamedQuery(name = "BearingsIndustrial.findByManufacturerEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturerEn = :manufacturerEn"),
+    @NamedQuery(name = "BearingsIndustrial.findByManufacturerRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.manufacturerRu = :manufacturerRu"),
+    @NamedQuery(name = "BearingsIndustrial.findByCountryEn", query = "SELECT l FROM BearingsIndustrial l WHERE l.countryEn = :countryEn"),
+    @NamedQuery(name = "BearingsIndustrial.findByCountryRu", query = "SELECT l FROM BearingsIndustrial l WHERE l.countryRu = :countryRu"),
     @NamedQuery(name = "BearingsIndustrial.findByBasicDynamicLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicDynamicLoadRating = :basicDynamicLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByBasicStaticLoadRating", query = "SELECT l FROM BearingsIndustrial l WHERE l.basicStaticLoadRating = :basicStaticLoadRating"),
     @NamedQuery(name = "BearingsIndustrial.findByFatiqueLoadLimit", query = "SELECT l FROM BearingsIndustrial l WHERE l.fatiqueLoadLimit = :fatiqueLoadLimit"),
     @NamedQuery(name = "BearingsIndustrial.findByReferenceSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.referenceSpeed = :referenceSpeed"),
     @NamedQuery(name = "BearingsIndustrial.findByLimitingSpeed", query = "SELECT l FROM BearingsIndustrial l WHERE l.limitingSpeed = :limitingSpeed"),
-    @NamedQuery(name = "BearingsIndustrial.findByInnerDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.d = :d"),
-    @NamedQuery(name = "BearingsIndustrial.findByOuterDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.D = :D"),
-    @NamedQuery(name = "BearingsIndustrial.findByWidth", query = "SELECT l FROM BearingsIndustrial l WHERE l.B = :B"),
+    @NamedQuery(name = "BearingsIndustrial.findByInnerDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.innerDiameter = :innerDiameter"),
+    @NamedQuery(name = "BearingsIndustrial.findByOuterDiameter", query = "SELECT l FROM BearingsIndustrial l WHERE l.outerDiameter = :outerDiameter"),
+    @NamedQuery(name = "BearingsIndustrial.findByWidth", query = "SELECT l FROM BearingsIndustrial l WHERE l.width = :width"),
     @NamedQuery(name = "BearingsIndustrial.findByWeight", query = "SELECT l FROM BearingsIndustrial l WHERE l.weight = :weight"),
     @NamedQuery(name = "BearingsIndustrial.findByTemperatureWork", query = "SELECT l FROM BearingsIndustrial l WHERE l.temperatureWork = :temperatureWork"),
     @NamedQuery(name = "BearingsIndustrial.findByGuarantee", query = "SELECT l FROM BearingsIndustrial l WHERE l.guarantee = :guarantee"),
@@ -128,15 +128,15 @@ public class BearingsIndustrial implements Serializable {
     @Basic(optional = false)
     @NotNull   
     @Column(name = "d_inner_diameter")
-    private int d;
+    private int innerDiameter;
     @Basic(optional = false)
     @NotNull   
     @Column(name = "D_outer_diameter")
-    private int D;
+    private int outerDiameter;
     @Basic(optional = false)
     @NotNull   
     @Column(name = "B_width")
-    private int B;
+    private int width;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -192,7 +192,7 @@ public class BearingsIndustrial implements Serializable {
             String manufacturerEn, String countryEn, String typeRu, String subTypeRu, 
             String manufacturerRu, String countryRu, int basicDynamicLoadRating, 
             int basicStaticLoadRating, int fatiqueLoadLimit, int referenceSpeed, 
-            int limitingSpeed, int d, int D, int B, String weight, String temperatureWork, 
+            int limitingSpeed, int innerDiameter, int outerDiameter, int width, String weight, String temperatureWork, 
             String guarantee) {
         this.model = model;
         this.typeEn = typeEn;
@@ -208,9 +208,9 @@ public class BearingsIndustrial implements Serializable {
         this.fatiqueLoadLimit = fatiqueLoadLimit;
         this.referenceSpeed = referenceSpeed;
         this.limitingSpeed = limitingSpeed;
-        this.d = d;
-        this.D = D;
-        this.B = B;
+        this.innerDiameter = innerDiameter;
+        this.outerDiameter = outerDiameter;
+        this.width = width;
         this.weight = weight;
         this.temperatureWork = temperatureWork;
         this.guarantee = guarantee;
@@ -345,27 +345,27 @@ public class BearingsIndustrial implements Serializable {
     }
 
     public int getInnerDiameter() {
-        return d;
+        return innerDiameter;
     }
 
-    public void setInnerDiameter(int d) {
-        this.d = d;
+    public void setInnerDiameter(int innerDiameter) {
+        this.innerDiameter = innerDiameter;
     }
 
     public int getOuterDiameter() {
-        return D;
+        return outerDiameter;
     }
 
-    public void setOuterDiameter(int D) {
-        this.D = D;
+    public void setOuterDiameter(int outerDiameter) {
+        this.outerDiameter = outerDiameter;
     }
     
     public int getWidth() {
-        return B;
+        return width;
     }
 
-    public void setWidth(int B) {
-        this.B = B;
+    public void setWidth(int width) {
+        this.width = width;
     }
     
     public String getWeight() {

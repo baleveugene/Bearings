@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "BearingsIndustrialManufacturer.findAll", query = "SELECT l FROM BearingsIndustrialManufacturer l"),
-    @NamedQuery(name = "BearingsIndustrialManufacturer.findByManufacturerEn", query = "SELECT l FROM BearingsIndustrialManufacturer l WHERE l.manufacturerEn = :manufacturerEn"),
-    @NamedQuery(name = "BearingsIndustrialManufacturer.findByManufacturerRu", query = "SELECT l FROM BearingsIndustrialManufacturer l WHERE l.manufacturerRu = :manufacturerRu"),
+    @NamedQuery(name = "BearingsIndustrialManufacturer.findByManufacturer", query = "SELECT l FROM BearingsIndustrialManufacturer l WHERE l.manufacturer = :manufacturer"),
+ //   @NamedQuery(name = "BearingsIndustrialManufacturer.findByManufacturerRu", query = "SELECT l FROM BearingsIndustrialManufacturer l WHERE l.manufacturerRu = :manufacturerRu"),
     @NamedQuery(name = "BearingsIndustrialManufacturer.findByNum", query = "SELECT l FROM BearingsIndustrialType l WHERE l.num = :num")})
 public class BearingsIndustrialManufacturer implements Serializable {
 
@@ -36,40 +36,40 @@ public class BearingsIndustrialManufacturer implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "manufacturer_en")
-    private String manufacturerEn;
-    @Basic(optional = false)
+    @Column(name = "manufacturer")
+    private String manufacturer;
+/*    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "manufacturer_ru")
-    private String manufacturerRu;
+    @Column(name = "manufacturer")
+    private String manufacturerRu; */
     @Column(name = "num")
     private Integer num;
 
     public BearingsIndustrialManufacturer() {
     }
 
-    public BearingsIndustrialManufacturer(String manufacturerEn, String manufacturerRu) {
-        this.manufacturerEn = manufacturerEn;
-        this.manufacturerRu = manufacturerRu;
+    public BearingsIndustrialManufacturer(String manufacturerEn) {
+        this.manufacturer = manufacturerEn;
+  //      this.manufacturerRu = manufacturerRu;
     }
 
-    public String getManufacturerEn() {
-        return manufacturerEn;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setManufacturerEn(String manufacturerEn) {
-        this.manufacturerEn = manufacturerEn;
+    public void setManufacturer(String manufacturerEn) {
+        this.manufacturer = manufacturerEn;
     }
     
-    public String getManufacturerRu() {
+/*    public String getManufacturerRu() {
         return manufacturerRu;
     }
 
     public void setManufacturerRu(String manufacturerRu) {
         this.manufacturerRu = manufacturerRu;
     }
-
+*/
     public Integer getNum() {
         return num;
     }
@@ -81,7 +81,7 @@ public class BearingsIndustrialManufacturer implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (manufacturerEn != null ? manufacturerEn.hashCode() : 0);
+        hash += (manufacturer != null ? manufacturer.hashCode() : 0);
         return hash;
     }
 
@@ -92,7 +92,7 @@ public class BearingsIndustrialManufacturer implements Serializable {
             return false;
         }
         BearingsIndustrialManufacturer other = (BearingsIndustrialManufacturer) object;
-        if ((this.manufacturerEn == null && other.manufacturerEn != null) || (this.manufacturerEn != null && !this.manufacturerEn.equals(other.manufacturerEn))) {
+        if ((this.manufacturer == null && other.manufacturer != null) || (this.manufacturer != null && !this.manufacturer.equals(other.manufacturer))) {
             return false;
         }
         return true;
@@ -100,7 +100,7 @@ public class BearingsIndustrialManufacturer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.springapp.bearings.domain.BearingsIndustrialManufacturer[ manufacturer=" + manufacturerEn + " ]";
+        return "com.springapp.bearings.domain.BearingsIndustrialManufacturer[ manufacturer=" + manufacturer + " ]";
     }
     
 }
